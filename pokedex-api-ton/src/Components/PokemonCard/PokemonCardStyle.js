@@ -13,7 +13,6 @@ export const StyleCard = styled.div`
     gap: 34px;
 `
 export const StyleCardFull = styled.div`
-   min-height: 100vh;
    display: flex;
    flex-wrap: wrap;
 `

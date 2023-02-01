@@ -5,6 +5,9 @@ export const StyleList = styled.div`
     min-height: 100vh;
     width: 100vw;
     padding-left: 40px;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 50px 20px;
 `
 export const StyleH1 = styled.h1`
     color: white;
@@ -12,4 +15,5 @@ export const StyleH1 = styled.h1`
     font-weight: 700;
     font-family: 'Poppins', sans-serif;
     padding: 50px 0;
+    width: 100vw;
 `

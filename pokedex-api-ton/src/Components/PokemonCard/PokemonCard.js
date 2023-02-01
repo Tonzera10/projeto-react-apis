@@ -21,38 +21,44 @@ import pokebola from "../../assets/pokebolaFundo.png";
 import { useContext } from "react";
 import { GlobalContext } from "../../contexts/GlobalContext";
 
-function PokemonCard() {
-  const context = useContext(GlobalContext);
-  const { pokeList } = context;
-
+function PokemonCard({ pokeCard }) {
   return (
     <>
-      {pokeList.map((pokeCard) => {
-        <StyleCardFull>
-          <StyleCard>
-            <StyleDiv>
-              <StyleId>#01</StyleId>
-              <StyleName>{pokeCard.name}</StyleName>
-              <ImgPokemon src={pokeCard.sprites.other.home.front_default} />
-              <ImgPokebola src={pokebola} />
-            </StyleDiv>
-            <StyleClass>
+      <StyleCardFull key={pokeCard.id}>
+        <StyleCard>
+          <StyleDiv>
+            <StyleId>#01</StyleId>
+            <StyleName>{pokeCard.name}</StyleName>
+            <ImgPokemon
+              src={pokeCard.sprites.other["official-artwork"].front_default}
+            />
+            <ImgPokebola src={pokebola} />
+          </StyleDiv>
+          <StyleClass>
+            {pokeCard.types?.length > 1 ? (
+              <>
+                <ClassFirst>
+                  <StyleImgClass />
+                  <StyleTextClass>{pokeCard.types[0].type.name}</StyleTextClass>
+                </ClassFirst>
+                <ClassSecond>
+                  <StyleImgClass />
+                  <StyleTextClass>Poison</StyleTextClass>
+                </ClassSecond>
+              </>
+            ) : (
               <ClassFirst>
                 <StyleImgClass />
-                <StyleTextClass>Poison</StyleTextClass>
+                <StyleTextClass>{pokeCard.types[0].type.name}</StyleTextClass>
               </ClassFirst>
-              <ClassSecond>
-                <StyleImgClass />
-                <StyleTextClass>Grass</StyleTextClass>
-              </ClassSecond>
-            </StyleClass>
-            <DetailAndCaptur>
-              <StyleDetail>Detalhes</StyleDetail>
-              <ButtonCaptur>Capturar!</ButtonCaptur>
-            </DetailAndCaptur>
-          </StyleCard>
-        </StyleCardFull>;
-      })}
+            )}
+          </StyleClass>
+          <DetailAndCaptur>
+            <StyleDetail>Detalhes</StyleDetail>
+            <ButtonCaptur>Capturar!</ButtonCaptur>
+          </DetailAndCaptur>
+        </StyleCard>
+      </StyleCardFull>
     </>
   );
 }
