@@ -2,17 +2,11 @@ import { GlobalContext } from "./GlobalContext";
 import axios from "axios";
 import { useState, useEffect } from "react";
 import { Base_Url_Pokemons } from "../Links/apiPokemons";
-import bug from "../assets/Type/bug.png"
-import fire from "../assets/Type/fire.png"
-import flying from "../assets/Type/flying.png"
-import grass from "../assets/Type/grass.png"
-import normal from "../assets/Type/normal.png"
-import poison from "../assets/Type/poison.png"
-import water from "../assets/Type/water.png"
 import { ClassFirst, ClassSecond, StyleImgClass, StyleTextClass } from "../Components/PokemonCard/PokemonCardStyle";
 
 function GlobalState({ children }) {
   const [pokeList, setPokeList] = useState([]);
+  const [pokedex, setPokedex] = useState([])
 
   const getItens = async () => {
     const arrayPokemons = [];
@@ -36,7 +30,7 @@ function GlobalState({ children }) {
   };
 
   const getType = () => {
-    pokeList.types[0].type.map((type)=>{
+    pokeList[0].types[0].type.map((type)=>{
       let typePoke = '';
       let color = '';
       switch (type) {
@@ -74,27 +68,34 @@ function GlobalState({ children }) {
       }
       return(
         <>
-          {pokeList.types?.length > 1 ?
-            <>
-              <ClassFirst>
-                <StyleImgClass />
-                <StyleTextClass>{pokeList.types[0].type.name}</StyleTextClass>
-              </ClassFirst>
-              <ClassSecond>
-                <StyleImgClass />
-                <StyleTextClass>Poison</StyleTextClass>
-              </ClassSecond>
-            </>
-          :
-            <ClassFirst>
-                <StyleImgClass />
-                <StyleTextClass>{pokeList.types[0].type.name}</StyleTextClass>
-            </ClassFirst>
-          }
+          {pokeList.types.map((pokemon)=>{
+              return(
+                <ClassFirst>
+                  <StyleImgClass />
+                  <StyleTextClass>{pokemon.type.name}</StyleTextClass>
+                </ClassFirst>
+              )
+              })
+            }
         </>
       )
     })
   }
+
+  const addToPokedex = (pokemonToAdd) => {
+    const pokeFind = pokedex.find((pokemonInPokedex) => pokemonInPokedex.name === pokemonToAdd.name);
+
+    if(!pokeFind) {
+      const newPokedex = [...pokedex, pokemonToAdd]
+      setPokedex(newPokedex)
+    }
+  }
+
+  const removeToPokedex = (pokemonToRemove) => {
+    const newPokedex = pokedex.filter((pokemonInPokedex) => pokemonInPokedex.name === pokemonToRemove.name)
+    setPokedex(newPokedex)
+  }
+  // console.log(pokeList[0].types)
 
   useEffect(() => {
     getItens();
@@ -103,7 +104,11 @@ function GlobalState({ children }) {
 
   const data = {
     pokeList,
-    getType
+    getType,
+    pokedex,
+    addToPokedex,
+    removeToPokedex,
+
   };
 
   return (

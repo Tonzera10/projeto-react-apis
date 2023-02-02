@@ -1,7 +1,5 @@
 import {
   ButtonCaptur,
-  ClassFirst,
-  ClassSecond,
   DetailAndCaptur,
   ImgPokebola,
   ImgPokemon,
@@ -11,19 +9,18 @@ import {
   StyleDetail,
   StyleDiv,
   StyleId,
-  StyleImgClass,
-  StyleName,
-  StyleTextClass,
-  Teste,
+  StyleName
 } from "./PokemonCardStyle";
-import imagem from "../../assets/image 3.png";
 import pokebola from "../../assets/pokebolaFundo.png";
 import { useContext } from "react";
 import { GlobalContext } from "../../contexts/GlobalContext";
+import GetType from "../type/GetType";
 
 function PokemonCard({ pokeCard }) {
-  return (
-    <>
+    const context = useContext(GlobalContext)
+    const {addToPokedex} = context
+    return (
+      <>
       <StyleCardFull key={pokeCard.id}>
         <StyleCard>
           <StyleDiv>
@@ -31,31 +28,15 @@ function PokemonCard({ pokeCard }) {
             <StyleName>{pokeCard.name}</StyleName>
             <ImgPokemon
               src={pokeCard.sprites.other["official-artwork"].front_default}
-            />
+              />
             <ImgPokebola src={pokebola} />
           </StyleDiv>
           <StyleClass>
-            {pokeCard.types?.length > 1 ? (
-              <>
-                <ClassFirst>
-                  <StyleImgClass />
-                  <StyleTextClass>{pokeCard.types[0].type.name}</StyleTextClass>
-                </ClassFirst>
-                <ClassSecond>
-                  <StyleImgClass />
-                  <StyleTextClass>Poison</StyleTextClass>
-                </ClassSecond>
-              </>
-            ) : (
-              <ClassFirst>
-                <StyleImgClass />
-                <StyleTextClass>{pokeCard.types[0].type.name}</StyleTextClass>
-              </ClassFirst>
-            )}
+            <GetType pokeCard={pokeCard}/>
           </StyleClass>
           <DetailAndCaptur>
             <StyleDetail>Detalhes</StyleDetail>
-            <ButtonCaptur>Capturar!</ButtonCaptur>
+            <ButtonCaptur onClick={()=>addToPokedex()}>Capturar!</ButtonCaptur>
           </DetailAndCaptur>
         </StyleCard>
       </StyleCardFull>

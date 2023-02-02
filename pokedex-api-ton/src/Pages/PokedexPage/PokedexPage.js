@@ -7,14 +7,14 @@ import { StyleList, StyleTitle } from "./PokedexStyle";
 export const PokedexPage = () => {
 
     const context = useContext(GlobalContext);
-  const { pokeList } = context;
+    const { pokedex } = context;
 
   return (
     <>
       <Header />
       <StyleList>
         <StyleTitle>Todos Pokemons</StyleTitle>
-        {pokeList.map((pokeCard) => {
+        {pokedex.map((pokeCard) => {
           return <PokemonCard pokeCard={pokeCard} />;
         })}
       </StyleList>
