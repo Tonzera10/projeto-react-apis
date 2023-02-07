@@ -13,7 +13,7 @@ export const PokedexPage = () => {
     <>
       <Header />
       <StyleList>
-        <StyleTitle>Todos Pokemons</StyleTitle>
+        <StyleTitle>Meus Pokemons</StyleTitle>
         {pokedex.map((pokeCard) => {
           return <PokemonCard pokeCard={pokeCard} />;
         })}

@@ -7,7 +7,7 @@ export const StyleCard = styled.div`
     display: flex;
     border: solid 1px black;
     flex-direction: column;
-    background-color: #729F92;
+    background-color: green;
     padding-left: 23px;
     padding-top: 25px;
     gap: 34px;
@@ -15,6 +15,10 @@ export const StyleCard = styled.div`
 export const StyleCardFull = styled.div`
    display: flex;
    flex-wrap: wrap;
+`
+export const StyleClass = styled.div`
+    display: flex;
+    gap: 7px;
 `
 
 export const ImgPokemon = styled.img`

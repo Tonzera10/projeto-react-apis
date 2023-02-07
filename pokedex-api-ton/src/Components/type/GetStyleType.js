@@ -19,4 +19,9 @@ export const ClassFirst = styled.div`
     color: white;
     width: 99px;
     height: 31px;
+    background: ${(props) => props.color};
+`
+export const StyleImgClass = styled.img`
+    width: 20px;
+    height: 20px;
 `
