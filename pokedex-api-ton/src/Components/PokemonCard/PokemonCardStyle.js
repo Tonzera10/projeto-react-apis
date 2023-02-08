@@ -7,7 +7,7 @@ export const StyleCard = styled.div`
     display: flex;
     border: solid 1px black;
     flex-direction: column;
-    background-color: green;
+    background-color: ${(props) => props.color};
     padding-left: 23px;
     padding-top: 25px;
     gap: 34px;
@@ -85,6 +85,17 @@ export const ButtonCaptur = styled.button`
     height: 38px;
     border-radius: 8px;
     border: none;
+`
+export const ButtonRemove = styled.button`
+    font-family: 'Poppins', sans-serif;
+    font-weight: 400;
+    font-size: 16px;
+    width: 146px;
+    height: 38px;
+    border-radius: 8px;
+    border: none;
+    background-color: red;
+    color: white;
 `
 
 export const StyleDiv = styled.div`

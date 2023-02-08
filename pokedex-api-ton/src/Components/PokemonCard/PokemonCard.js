@@ -1,5 +1,6 @@
 import {
   ButtonCaptur,
+  ButtonRemove,
   DetailAndCaptur,
   ImgPokebola,
   ImgPokemon,
@@ -15,14 +16,20 @@ import pokebola from "../../assets/pokebolaFundo.png";
 import { useContext } from "react";
 import { GlobalContext } from "../../contexts/GlobalContext";
 import GetType from "../type/GetType";
+import { useLocation, useNavigate } from "react-router-dom";
+import { goToDetails } from "../../router/cordinator";
 
-function PokemonCard({ pokeCard }) {
+function PokemonCard({ pokeCard, color }) {
   const context = useContext(GlobalContext);
-  const { addToPokedex, removeToPokedex, findPokemon } = context;
+  const { addToPokedex, removeFromPokedex, findPokemon } = context;
+  const location = useLocation()
+  const navigate = useNavigate()
+
   return (
     <>
+    {location.pathname === "/" || "/pokedex" ?
       <StyleCardFull key={pokeCard.id}>
-        <StyleCard >
+        <StyleCard color={color}>
           <StyleDiv>
             <StyleId>#{pokeCard.id}</StyleId>
             <StyleName>{pokeCard.name}</StyleName>
@@ -35,19 +42,22 @@ function PokemonCard({ pokeCard }) {
             <GetType pokeCard={pokeCard} />
           </StyleClass>
           <DetailAndCaptur>
-            <StyleDetail>Detalhes</StyleDetail>
+            <StyleDetail onClick={() => goToDetails(navigate, pokeCard.id)}>Detalhes</StyleDetail>
             {findPokemon ? (
               <ButtonCaptur onClick={() => addToPokedex(pokeCard)}>
                 Capturar!
               </ButtonCaptur>
             ) : (
-              <ButtonCaptur onClick={() => removeToPokedex(pokeCard)}>
+              <ButtonRemove onClick={() => removeFromPokedex(pokeCard)}>
                 Excluir!
-              </ButtonCaptur>
+              </ButtonRemove>
             )}
           </DetailAndCaptur>
         </StyleCard>
       </StyleCardFull>
+      :
+      <h1>eae galera estamos no detalhes</h1>
+    }
     </>
   );
 }

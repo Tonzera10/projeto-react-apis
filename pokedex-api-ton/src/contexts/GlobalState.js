@@ -29,32 +29,6 @@ function GlobalState({ children }) {
     }
   };
 
-  const getColor = () => {
-    let  color = ""
-    const listPoke = pokeList.types.map((pokemon) => {
-      switch (pokemon.type.name) {
-
-      case "grass":
-        color = "#729F92"
-        break;
-      case "fire":
-        color = "#EAAB7D"
-        break;
-      case "water":
-        color = "#71C3FF"
-        break;
-      case "bug":
-        color = "#76A866"
-        break;
-      case "normal":
-        color = "##BF9762"
-        break;
-    
-      default:
-        break;
-    }
-    return 
-  })}
 
   const findPokemon = (pokemonToFind) => {
     const pokeFind = pokedex.find((pokemonInPokedex) => pokemonInPokedex.name === pokemonToFind.name)
@@ -74,8 +48,8 @@ function GlobalState({ children }) {
     }
   }
 
-  const removeToPokedex = (pokemonToRemove) => {
-    const newPokedex = pokedex.filter((pokemonInPokedex) => pokemonInPokedex.name === pokemonToRemove.name)
+  const removeFromPokedex = (pokemonToRemove) => {
+    const newPokedex = pokedex.filter((pokemonInPokedex) => pokemonInPokedex.name !== pokemonToRemove.name)
     setPokedex(newPokedex)
   }
  console.log(pokedex);
@@ -89,8 +63,7 @@ function GlobalState({ children }) {
     pokeList,
     pokedex,
     addToPokedex,
-    removeToPokedex,
-    getColor,
+    removeFromPokedex,
     findPokemon
   };
 

@@ -27,3 +27,42 @@ export const StyleButton = styled.button`
     grid-column: 3;
     margin-left: 200px;
 `
+export const ButtonCaptur = styled.button`
+    font-family: 'Poppins', sans-serif;
+    font-weight: 400;
+    font-size: 16px;
+    width: 146px;
+    height: 38px;
+    border-radius: 8px;
+    border: none;
+`
+export const ButtonRemove = styled.button`
+    font-family: 'Poppins', sans-serif;
+    font-weight: 400;
+    font-size: 16px;
+    width: 146px;
+    height: 38px;
+    border-radius: 8px;
+    border: none;
+    background-color: red;
+    color: white;
+`
+export const ButtonBackAll = styled.button`
+    font-family: 'Poppins', sans-serif;
+    font-weight: 700;
+    font-size: 24px;
+    width: 210px;
+    height: 36px;
+    border-radius: 8px;
+    border: none;
+    text-decoration-line: underline;
+`
+export const StyleBackAll = styled.div`
+    display: flex;
+    align-items: center;
+    margin-left: 80px;
+`
+export const StyleSeta = styled.img`
+    width: 7.29px;
+    height: 14.58px;
+`
