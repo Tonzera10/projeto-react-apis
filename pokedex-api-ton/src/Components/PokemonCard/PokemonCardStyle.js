@@ -85,6 +85,7 @@ export const ButtonCaptur = styled.button`
     height: 38px;
     border-radius: 8px;
     border: none;
+    z-index: 2;
 `
 export const ButtonRemove = styled.button`
     font-family: 'Poppins', sans-serif;
@@ -96,8 +97,23 @@ export const ButtonRemove = styled.button`
     border: none;
     background-color: red;
     color: white;
+    z-index: 2;
 `
 
 export const StyleDiv = styled.div`
     height: 4vh;
 ` 
+
+
+export const StyleCardDetails = styled.div`
+    width: 1389px;
+    height: 663px;
+    border-radius: 37px;
+    display: flex;
+    border: solid 1px black;
+    flex-direction: column;
+    background-color: ${(props) => props.color};
+    padding-left: 23px;
+    padding-top: 25px;
+    gap: 34px;
+`

@@ -5,6 +5,7 @@ import {
   ImgPokebola,
   ImgPokemon,
   StyleCard,
+  StyleCardDetails,
   StyleCardFull,
   StyleClass,
   StyleDetail,
@@ -21,29 +22,90 @@ import { goToDetails } from "../../router/cordinator";
 
 function PokemonCard({ pokeCard, color }) {
   const context = useContext(GlobalContext);
-  const { addToPokedex, removeFromPokedex, findPokemon } = context;
-  const location = useLocation()
-  const navigate = useNavigate()
+  const { addToPokedex, removeFromPokedex, findPokemon, inDetails } = context;
+  const location = useLocation();
+  const navigate = useNavigate();
 
-  return (
-    <>
-    {location.pathname === "/" || "/pokedex" ?
-      <StyleCardFull key={pokeCard.id}>
-        <StyleCard color={color}>
-          <StyleDiv>
-            <StyleId>#{pokeCard.id}</StyleId>
-            <StyleName>{pokeCard.name}</StyleName>
-            <ImgPokemon
-              src={pokeCard.sprites.other["official-artwork"].front_default}
-            />
-            <ImgPokebola src={pokebola} />
-          </StyleDiv>
-          <StyleClass>
-            <GetType pokeCard={pokeCard} />
-          </StyleClass>
-          <DetailAndCaptur>
-            <StyleDetail onClick={() => goToDetails(navigate, pokeCard.id)}>Detalhes</StyleDetail>
-            {findPokemon ? (
+  const renderPokeCard = () => {
+    switch (location.pathname) {
+      case "/":
+        return (
+          <StyleCardFull key={pokeCard.id}>
+            <StyleCard color={color}>
+              <StyleDiv>
+                <StyleId>#{pokeCard.id}</StyleId>
+                <StyleName>{pokeCard.name}</StyleName>
+                <ImgPokemon
+                  src={pokeCard.sprites.other["official-artwork"].front_default}
+                />
+                <ImgPokebola src={pokebola} />
+              </StyleDiv>
+              <StyleClass>
+                <GetType pokeCard={pokeCard} />
+              </StyleClass>
+              <DetailAndCaptur>
+                <StyleDetail onClick={() => {goToDetails(navigate, pokeCard.id); inDetails(pokeCard)}}>
+                  Detalhes
+                </StyleDetail>
+                {findPokemon ? (
+                  <ButtonCaptur onClick={() => addToPokedex(pokeCard)}>
+                    Capturar!
+                  </ButtonCaptur>
+                ) : (
+                  <ButtonRemove onClick={() => removeFromPokedex(pokeCard)}>
+                    Excluir!
+                  </ButtonRemove>
+                )}
+              </DetailAndCaptur>
+            </StyleCard>
+          </StyleCardFull>
+        );
+      case "/pokedex":
+        return (
+          <StyleCardFull key={pokeCard.id}>
+            <StyleCard color={color}>
+              <StyleDiv>
+                <StyleId>#{pokeCard.id}</StyleId>
+                <StyleName>{pokeCard.name}</StyleName>
+                <ImgPokemon
+                  src={pokeCard.sprites.other["official-artwork"].front_default}
+                />
+                <ImgPokebola src={pokebola} />
+              </StyleDiv>
+              <StyleClass>
+                <GetType pokeCard={pokeCard} />
+              </StyleClass>
+              <DetailAndCaptur>
+                <StyleDetail onClick={() => {goToDetails(navigate, pokeCard.id); inDetails(pokeCard)}}>
+                  Detalhes
+                </StyleDetail>
+                <ButtonRemove onClick={() => removeFromPokedex(pokeCard)}>
+                  Excluir!
+                </ButtonRemove>
+              </DetailAndCaptur>
+            </StyleCard>
+          </StyleCardFull>
+        );
+      default:
+        return(
+          <StyleCardFull key={pokeCard.id}>
+          <StyleCardDetails color={color}>
+            <StyleDiv>
+              <StyleId>#{pokeCard.id}</StyleId>
+              <StyleName>{pokeCard.name}</StyleName>
+              <ImgPokemon
+                src={pokeCard.sprites.other["official-artwork"].front_default}
+              />
+              <ImgPokebola src={pokebola} />
+            </StyleDiv>
+            <StyleClass>
+              <GetType pokeCard={pokeCard} />
+            </StyleClass>
+            <DetailAndCaptur>
+              <StyleDetail onClick={() => goToDetails(navigate, pokeCard.id)}>
+                Detalhes
+              </StyleDetail>
+              {findPokemon ? (
               <ButtonCaptur onClick={() => addToPokedex(pokeCard)}>
                 Capturar!
               </ButtonCaptur>
@@ -51,13 +113,17 @@ function PokemonCard({ pokeCard, color }) {
               <ButtonRemove onClick={() => removeFromPokedex(pokeCard)}>
                 Excluir!
               </ButtonRemove>
-            )}
-          </DetailAndCaptur>
-        </StyleCard>
-      </StyleCardFull>
-      :
-      <h1>eae galera estamos no detalhes</h1>
+            )}  
+            </DetailAndCaptur>
+          </StyleCardDetails>
+        </StyleCardFull>
+        )
     }
+  };
+
+  return (
+    <>
+      {renderPokeCard()}
     </>
   );
 }

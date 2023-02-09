@@ -7,6 +7,7 @@ import { Base_Url_Pokemons } from "../Links/apiPokemons";
 function GlobalState({ children }) {
   const [pokeList, setPokeList] = useState([]);
   const [pokedex, setPokedex] = useState([]);
+  const [details, setDetails] = useState([])
 
   const getPokemons = async () => {
     const arrayPokemons = [];
@@ -29,6 +30,9 @@ function GlobalState({ children }) {
     }
   };
 
+  const inDetails = (pokemon) => {
+    setDetails(pokemon)
+  }
 
   const findPokemon = (pokemonToFind) => {
     const pokeFind = pokedex.find((pokemonInPokedex) => pokemonInPokedex.name === pokemonToFind.name)
@@ -57,14 +61,15 @@ function GlobalState({ children }) {
   useEffect(() => {
     getPokemons();
   }, []);
-  console.log(pokeList);
 
   const data = {
     pokeList,
     pokedex,
     addToPokedex,
     removeFromPokedex,
-    findPokemon
+    findPokemon,
+    inDetails,
+    details
   };
 
   return (

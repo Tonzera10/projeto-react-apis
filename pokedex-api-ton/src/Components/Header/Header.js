@@ -45,7 +45,7 @@ function Header() {
             <StyleImg src={pokemonHeader} />
           </StyleHeader>
         );
-      case "/details/:id":
+      default:
         return (
           <StyleHeader>
             <StyleBackAll>
@@ -64,15 +64,6 @@ function Header() {
                 Excluir!
               </ButtonRemove>
             )}
-          </StyleHeader>
-        );
-      default:
-        return (
-          <StyleHeader>
-            <StyleImg src={pokemonHeader} />
-            <StyleButton onClick={() => goToPokeList(navigate)}>
-              Voltar
-            </StyleButton>
           </StyleHeader>
         );
     }

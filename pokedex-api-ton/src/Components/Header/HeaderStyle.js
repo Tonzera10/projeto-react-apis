@@ -35,6 +35,7 @@ export const ButtonCaptur = styled.button`
     height: 38px;
     border-radius: 8px;
     border: none;
+    z-index: 2;
 `
 export const ButtonRemove = styled.button`
     font-family: 'Poppins', sans-serif;
@@ -46,6 +47,7 @@ export const ButtonRemove = styled.button`
     border: none;
     background-color: red;
     color: white;
+    z-index: 2;
 `
 export const ButtonBackAll = styled.button`
     font-family: 'Poppins', sans-serif;

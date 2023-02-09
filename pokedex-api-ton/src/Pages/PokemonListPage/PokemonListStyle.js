@@ -16,4 +16,5 @@ export const StyleH1 = styled.h1`
     font-family: 'Poppins', sans-serif;
     padding: 50px 0;
     width: 100vw;
+    
 `
