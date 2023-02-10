@@ -1,5 +1,10 @@
+import pokebola from "../../assets/pokebolaFundo.png";
+import { useContext } from "react";
+import { GlobalContext } from "../../contexts/GlobalContext";
+import GetType from "../type/GetType";
+import { useNavigate } from "react-router-dom";
+import { goToDetails } from "../../router/cordinator";
 import {
-  ButtonCaptur,
   ButtonRemove,
   DetailAndCaptur,
   ImgPokebola,
@@ -11,22 +16,15 @@ import {
   StyleDiv,
   StyleId,
   StyleName,
-} from "./PokemonCardStyle";
-import pokebola from "../../assets/pokebolaFundo.png";
-import { useContext } from "react";
-import { GlobalContext } from "../../contexts/GlobalContext";
-import GetType from "../type/GetType";
-import { useNavigate } from "react-router-dom";
-import { goToDetails } from "../../router/cordinator";
+} from "./PokemonCardPokedexStyle";
 
-function PokemonCard() {
+function PokemonCardPokedex() {
   const context = useContext(GlobalContext);
-  const { addToPokedex, removeFromPokedex, findPokemon, inDetails, pokeList } =
-    context;
+  const { removeFromPokedex, inDetails, pokedex } = context;
   const navigate = useNavigate();
 
-  const renderPokeCardList = () => {
-    pokeList.map((pokeCard) => {
+  const renderCardPokedex = () => {
+    pokedex.map((pokeCard) => {
       let color = "";
       switch (pokeCard.types[0].type.name) {
         case "grass":
@@ -71,23 +69,16 @@ function PokemonCard() {
               >
                 Detalhes
               </StyleDetail>
-              {findPokemon ? (
-                <ButtonCaptur onClick={() => addToPokedex(pokeCard)}>
-                  Capturar!
-                </ButtonCaptur>
-              ) : (
-                <ButtonRemove onClick={() => removeFromPokedex(pokeCard)}>
-                  Remover!
-                </ButtonRemove>
-              )}
+              <ButtonRemove onClick={() => removeFromPokedex(pokeCard)}>
+                Remover!
+              </ButtonRemove>
             </DetailAndCaptur>
           </StyleCard>
         </StyleCardFull>
       );
     });
   };
-
-  return <>{renderPokeCardList()}</>;
+  return <>{renderCardPokedex()}</>;
 }
 
-export default PokemonCard;
+export default PokemonCardPokedex;

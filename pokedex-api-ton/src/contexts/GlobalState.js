@@ -3,12 +3,15 @@ import axios from "axios";
 import { useState, useEffect } from "react";
 import { Base_Url_Pokemons } from "../Links/apiPokemons";
 
-
 function GlobalState({ children }) {
   const [pokeList, setPokeList] = useState([]);
   const [pokedex, setPokedex] = useState([]);
-  const [details, setDetails] = useState([])
+  const [details, setDetails] = useState([]);
 
+  useEffect(() => {
+    getPokemons();
+  }, []);
+  
   const getPokemons = async () => {
     const arrayPokemons = [];
 
@@ -31,36 +34,40 @@ function GlobalState({ children }) {
   };
 
   const inDetails = (pokemon) => {
-    setDetails(pokemon)
-  }
+    setDetails(pokemon);
+  };
 
   const findPokemon = (pokemonToFind) => {
-    const pokeFind = pokedex.find((pokemonInPokedex) => pokemonInPokedex.name === pokemonToFind.name)
-    let newbutton = false
-    if(pokeFind){
-      newbutton = true
+    const pokeFind = pokedex.find(
+      (pokemonInPokedex) => pokemonInPokedex.name === pokemonToFind.name
+    );
+    let newbutton = false;
+    if (pokeFind) {
+      newbutton = true;
     }
-    return newbutton
-  }
+    return newbutton;
+  };
 
   const addToPokedex = (pokemonToAdd) => {
-    const pokeFind = pokedex.find((pokemonInPokedex) => pokemonInPokedex.name === pokemonToAdd.name);
+    const pokeFind = pokedex.find(
+      (pokemonInPokedex) => pokemonInPokedex.name === pokemonToAdd.name
+    );
 
-    if(!pokeFind) {
-      const newPokedex = [...pokedex, pokemonToAdd]
-      setPokedex(newPokedex)
+    if (!pokeFind) {
+      const newPokedex = [...pokedex, pokemonToAdd];
+      setPokedex(newPokedex);
     }
-  }
+  };
+  console.log(pokeList)
 
   const removeFromPokedex = (pokemonToRemove) => {
-    const newPokedex = pokedex.filter((pokemonInPokedex) => pokemonInPokedex.name !== pokemonToRemove.name)
-    setPokedex(newPokedex)
-  }
- console.log(pokedex);
+    const newPokedex = pokedex.filter(
+      (pokemonInPokedex) => pokemonInPokedex.name !== pokemonToRemove.name
+    );
+    setPokedex(newPokedex);
+  };
+  console.log(pokedex);
 
-  useEffect(() => {
-    getPokemons();
-  }, []);
 
   const data = {
     pokeList,
@@ -69,7 +76,7 @@ function GlobalState({ children }) {
     removeFromPokedex,
     findPokemon,
     inDetails,
-    details
+    details,
   };
 
   return (

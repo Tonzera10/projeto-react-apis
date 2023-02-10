@@ -58,6 +58,7 @@ export const ButtonBackAll = styled.button`
     border-radius: 8px;
     border: none;
     text-decoration-line: underline;
+    background-color: white;
 `
 export const StyleBackAll = styled.div`
     display: flex;
