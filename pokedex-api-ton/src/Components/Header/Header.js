@@ -18,7 +18,7 @@ import {
 
 function Header() {
   const context = useContext(GlobalContext);
-  const { findPokemon, pokeList, addToPokedex, removeFromPokedex } = context;
+  const { findPokemon, addToPokedex, removeFromPokedex, details } = context;
   const navigate = useNavigate();
   const location = useLocation();
 
@@ -56,11 +56,11 @@ function Header() {
             </StyleBackAll>
             <StyleImg src={pokemonHeader} />
             {findPokemon ? (
-              <ButtonCaptur onClick={() => addToPokedex(pokeList)}>
+              <ButtonCaptur onClick={() => addToPokedex(details)}>
                 Capturar!
               </ButtonCaptur>
             ) : (
-              <ButtonRemove onClick={() => removeFromPokedex(pokeList)}>
+              <ButtonRemove onClick={() => removeFromPokedex(details)}>
                 Excluir!
               </ButtonRemove>
             )}

@@ -19,37 +19,16 @@ import GetType from "../type/GetType";
 import { useNavigate } from "react-router-dom";
 import { goToDetails } from "../../router/cordinator";
 
-function PokemonCard() {
+function PokemonCard({pokeCard, color, key}) {
   const context = useContext(GlobalContext);
-  const { addToPokedex, removeFromPokedex, findPokemon, inDetails, pokeList } =
+  const { addToPokedex, removeFromPokedex, findPokemon, inDetails } =
     context;
   const navigate = useNavigate();
-
+  
   const renderPokeCardList = () => {
-    pokeList.map((pokeCard) => {
-      let color = "";
-      switch (pokeCard.types[0].type.name) {
-        case "grass":
-          color = "#729F92";
-          break;
-        case "fire":
-          color = "#EAAB7D";
-          break;
-        case "water":
-          color = "#71C3FF";
-          break;
-        case "bug":
-          color = "#76A866";
-          break;
-        case "normal":
-          color = "#BF9762";
-          break;
-
-        default:
-          break;
-      }
+  
       return (
-        <StyleCardFull key={pokeCard.id}>
+        <StyleCardFull key={key}>
           <StyleCard color={color}>
             <StyleDiv>
               <StyleId>#{pokeCard.id}</StyleId>
@@ -84,7 +63,6 @@ function PokemonCard() {
           </StyleCard>
         </StyleCardFull>
       );
-    });
   };
 
   return <>{renderPokeCardList()}</>;

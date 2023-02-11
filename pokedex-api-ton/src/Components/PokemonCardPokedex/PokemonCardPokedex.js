@@ -18,34 +18,13 @@ import {
   StyleName,
 } from "./PokemonCardPokedexStyle";
 
-function PokemonCardPokedex() {
+function PokemonCardPokedex({pokeCard, color}) {
   const context = useContext(GlobalContext);
-  const { removeFromPokedex, inDetails, pokedex } = context;
+  const { removeFromPokedex, inDetails } = context;
   const navigate = useNavigate();
 
   const renderCardPokedex = () => {
-    pokedex.map((pokeCard) => {
-      let color = "";
-      switch (pokeCard.types[0].type.name) {
-        case "grass":
-          color = "#729F92";
-          break;
-        case "fire":
-          color = "#EAAB7D";
-          break;
-        case "water":
-          color = "#71C3FF";
-          break;
-        case "bug":
-          color = "#76A866";
-          break;
-        case "normal":
-          color = "#BF9762";
-          break;
-
-        default:
-          break;
-      }
+    
       return (
         <StyleCardFull key={pokeCard.id}>
           <StyleCard color={color}>
@@ -76,7 +55,6 @@ function PokemonCardPokedex() {
           </StyleCard>
         </StyleCardFull>
       );
-    });
   };
   return <>{renderCardPokedex()}</>;
 }
