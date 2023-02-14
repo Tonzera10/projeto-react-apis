@@ -32,10 +32,14 @@ export const StyleStats = styled.div`
     flex-direction: column;
     width: 343px;
     height: 613px;
+    padding: 20px;
+    gap: 10px;
+    border-radius: 8px;
 ` 
 export const StatsBar = styled.div`
     width: 307px;
-
+    display: grid;
+    grid-template-columns: 2fr 1fr 3fr;
 `
 export const Atributes = styled.p`
 font-family: 'Poppins', sans-serif;
@@ -51,6 +55,12 @@ export const AtributesValue = styled.p`
     line-height: 19px;
     text-align: center;
     margin-left: 20px;
+`
+export const StylePrograss = styled.div`
+    display: flex;
+    flex-direction: column;
+    width: 200px;
+    padding-left: 20px;
 `
 export const ProgressBar = styled.div`
     --progress: ${(props) => props.value};
@@ -74,7 +84,7 @@ export const StyleName = styled.p`
     font-weight: 700;
     font-size: 32px;
     color: white;
-
+    text-transform: capitalize;
 `
 export const ImgPokemon = styled.img`
     width: 193px;

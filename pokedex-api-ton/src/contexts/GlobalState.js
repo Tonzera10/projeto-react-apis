@@ -1,22 +1,38 @@
 import { GlobalContext } from "./GlobalContext";
 import axios from "axios";
 import { useState, useEffect } from "react";
-import { Base_Url_Pokemons } from "../Links/apiPokemons";
+
 
 function GlobalState({ children }) {
   const [pokeList, setPokeList] = useState([]);
   const [pokedex, setPokedex] = useState([]);
-  const [details, setDetails] = useState([]);
+  const [details, setDetails] = useState({});
 
   useEffect(() => {
     getPokemons();
+    getpokemonInPokedex()
   }, []);
+
+  useEffect(() => {
+    setPokemonInPokedex()
+  }, [pokedex])
+
+  const setPokemonInPokedex = () => {
+    const pokemon = JSON.stringify(pokedex);
+    localStorage.setItem("pokedex", pokemon);
+  };
+  const getpokemonInPokedex = () => {
+    const pokemons = JSON.parse(localStorage.getItem("pokedex"));
+    if (pokemons?.length > 0) {
+      return setPokedex(pokemons);
+    }
+  };
   
   const getPokemons = async () => {
     const arrayPokemons = [];
 
     try {
-      const response = await axios.get(Base_Url_Pokemons);
+      const response = await axios.get(`https://pokeapi.co/api/v2/pokemon/`);
       const poke = response.data.results;
 
       try {
@@ -33,19 +49,28 @@ function GlobalState({ children }) {
     }
   };
 
-  const inDetails = (pokemon) => {
-    setDetails(pokemon);
-  };
+  const getDetails = async (id) => {
+    try {
+      const response = await axios.get(`https://pokeapi.co/api/v2/pokemon/${id}`)
+      setDetails(response.data)
+      console.log(response, "certo");
+    }catch (error) {
+      alert(error.response)
+    }
+  }
+
+  const filteredPokeList = () =>
+    pokeList.filter(
+      (pokemonInList) =>
+        !pokedex.find(
+          (pokemonInPokedex) => pokemonInList.name === pokemonInPokedex.name
+        )
+    );
 
   const findPokemon = (pokemonToFind) => {
-    const pokeFind = pokedex.find(
+    pokedex.find(
       (pokemonInPokedex) => pokemonInPokedex.name === pokemonToFind.name
-    );
-    let newbutton = false;
-    if (pokeFind) {
-      newbutton = true;
-    }
-    return newbutton;
+    ); 
   };
 
   const addToPokedex = (pokemonToAdd) => {
@@ -58,7 +83,6 @@ function GlobalState({ children }) {
       setPokedex(newPokedex);
     }
   };
-  console.log(pokeList)
 
   const removeFromPokedex = (pokemonToRemove) => {
     const newPokedex = pokedex.filter(
@@ -66,8 +90,6 @@ function GlobalState({ children }) {
     );
     setPokedex(newPokedex);
   };
-  console.log(pokedex);
-
 
   const data = {
     pokeList,
@@ -75,8 +97,10 @@ function GlobalState({ children }) {
     addToPokedex,
     removeFromPokedex,
     findPokemon,
-    inDetails,
     details,
+    filteredPokeList,
+    setDetails,
+    getDetails
   };
 
   return (

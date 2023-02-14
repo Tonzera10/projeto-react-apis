@@ -1,18 +1,20 @@
-import { useContext } from "react";
-import { useNavigate } from "react-router-dom";
+import { useContext, useEffect } from "react";
+import { useNavigate, useParams } from "react-router-dom";
 import { GlobalContext } from "../../contexts/GlobalContext";
 import GetType from "../type/GetType";
 import pokebola from "../../assets/pokebolaFundo.png";
 import { goToDetails } from "../../router/cordinator";
-import { Atributes, AtributesValue, ButtonCaptur, ButtonRemove, DetailAndCaptur, DivImg, ImgDetails, ImgPokebola, ImgPokemon, ProgressBar, StatsBar, StyleCardDetails, StyleCardFull, StyleClass, StyleDetail, StyleDiv, StyleId, StyleName, StyleStats } from "./PokemonCardDetailsStyle";
+import { Atributes, AtributesValue, ButtonCaptur, ButtonRemove, DetailAndCaptur, DivImg, ImgDetails, ImgPokebola, ImgPokemon, ProgressBar, StatsBar, StyleCardDetails, StyleCardFull, StyleClass, StyleDetail, StyleDiv, StyleId, StyleName, StylePrograss, StyleStats } from "./PokemonCardDetailsStyle";
+
 
 function PokemonCardDetails() {
   const context = useContext(GlobalContext);
-  const { addToPokedex, removeFromPokedex, findPokemon, details } = context;
+  const { addToPokedex, removeFromPokedex, findPokemon, details, getDetails } = context;
   const navigate = useNavigate();
+  const {id} = useParams()
 
   let color = "";
-  switch (details.types[0].type.name) {
+  switch (details?.types?.length && details.types[0].type?.name) {
     case "grass":
       color = "#729F92";
       break;
@@ -33,34 +35,36 @@ function PokemonCardDetails() {
       break;
   }
 
+  useEffect(() => {
+    getDetails(id)
+  }, [])
+
   return (
-    <StyleCardFull key={details.id}>
+    <StyleCardFull key={details?.id}>
       <StyleCardDetails color={color}>
         <DivImg>
-          <ImgDetails src={details.sprites.front_default} />
-          <ImgDetails src={details.sprites.back_default} />
-          {console.log(details)}
+          <ImgDetails src={details?.sprites?.front_default} />
+          <ImgDetails src={details?.sprites?.back_default} />
         </DivImg>
         <StyleStats>
           <p>Base stats</p>
-          {details.stats.map((pokemon, index) => {
+          {details?.stats?.length && details.stats.map((pokemon, index) => {
             return (
               <StatsBar key={index}>
                 <Atributes>{pokemon.stat.name}</Atributes>
-                {console.log(pokemon.base_stat)}
                 <AtributesValue>{pokemon.base_stat}</AtributesValue>
-                <>
+                <StylePrograss>
                   <ProgressBar value={pokemon.base_stat}></ProgressBar>
-                </>
+                </StylePrograss>
               </StatsBar>
             );
           })}
         </StyleStats>
         <StyleDiv>
-          <StyleId>#{details.id}</StyleId>
-          <StyleName>{details.name}</StyleName>
+          <StyleId>#{details?.id}</StyleId>
+          <StyleName>{details?.name}</StyleName>
           <ImgPokemon
-            src={details.sprites.other["official-artwork"].front_default}
+            src={details?.sprites?.other?.length && details.sprits.other["official-artwork"].front_default}
           />
           <ImgPokebola src={pokebola} />
         </StyleDiv>
@@ -68,18 +72,8 @@ function PokemonCardDetails() {
           <GetType pokeCard={details} />
         </StyleClass>
         <DetailAndCaptur>
-          <StyleDetail onClick={() => goToDetails(navigate, details.id)}>
-            Detalhes
-          </StyleDetail>
-          {findPokemon ? (
-            <ButtonCaptur onClick={() => addToPokedex(details)}>
-              Capturar!
-            </ButtonCaptur>
-          ) : (
-            <ButtonRemove onClick={() => removeFromPokedex(details)}>
-              Remover!
-            </ButtonRemove>
-          )}
+          
+          
         </DetailAndCaptur>
       </StyleCardDetails>
     </StyleCardFull>

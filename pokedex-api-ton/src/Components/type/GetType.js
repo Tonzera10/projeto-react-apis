@@ -7,7 +7,7 @@ import poison from "../../assets/Type/poison.png";
 import water from "../../assets/Type/water.png";
 import { ClassFirst, StyleImgClass, StyleTextClass } from "./GetStyleType";
 function GetType({ pokeCard }) {
-  const listPoke = pokeCard.types.map((type, index) => {
+  const listPoke = pokeCard?.types?.map((type, index) => {
     switch (type.type.name) {
       case "poison":
         return (

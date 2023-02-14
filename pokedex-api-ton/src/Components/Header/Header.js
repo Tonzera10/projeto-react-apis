@@ -18,7 +18,7 @@ import {
 
 function Header() {
   const context = useContext(GlobalContext);
-  const { findPokemon, addToPokedex, removeFromPokedex, details } = context;
+  const { findPokemon, addToPokedex, removeFromPokedex, details, pokedex } = context;
   const navigate = useNavigate();
   const location = useLocation();
 
@@ -55,7 +55,7 @@ function Header() {
               </ButtonBackAll>
             </StyleBackAll>
             <StyleImg src={pokemonHeader} />
-            {findPokemon ? (
+            {findPokemon(pokedex) ? (
               <ButtonCaptur onClick={() => addToPokedex(details)}>
                 Capturar!
               </ButtonCaptur>

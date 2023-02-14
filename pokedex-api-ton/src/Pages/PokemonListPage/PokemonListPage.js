@@ -6,7 +6,7 @@ import { StyleH1, StyleList } from "./PokemonListStyle";
 
 export const PokemonListPage = () => {
   const context = useContext(GlobalContext);
-  const { pokeList } =
+  const { filteredPokeList } =
     context;
 
   return (
@@ -14,7 +14,7 @@ export const PokemonListPage = () => {
       <Header />
       <StyleList>
         <StyleH1>Todos Pokemons</StyleH1>
-        { pokeList.map((pokeCard, index) => {
+        { filteredPokeList().map((pokeCard, index) => {
       let color = "";
       switch (pokeCard.types[0].type.name) {
         case "grass":

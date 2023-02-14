@@ -52,7 +52,7 @@ export const StyleName = styled.p`
     font-weight: 700;
     font-size: 32px;
     color: white;
-
+    text-transform: capitalize;
 `
 
 export const DetailAndCaptur = styled.div`

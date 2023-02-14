@@ -21,7 +21,7 @@ import { goToDetails } from "../../router/cordinator";
 
 function PokemonCard({pokeCard, color, key}) {
   const context = useContext(GlobalContext);
-  const { addToPokedex, removeFromPokedex, findPokemon, inDetails } =
+  const { addToPokedex, removeFromPokedex, findPokemon, pokeList } =
     context;
   const navigate = useNavigate();
   
@@ -45,7 +45,6 @@ function PokemonCard({pokeCard, color, key}) {
               <StyleDetail
                 onClick={() => {
                   goToDetails(navigate, pokeCard.id);
-                  inDetails(pokeCard);
                 }}
               >
                 Detalhes
