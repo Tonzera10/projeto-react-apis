@@ -81,18 +81,6 @@ export const ButtonCaptur = styled.button`
     border: none;
     z-index: 2;
 `
-export const ButtonRemove = styled.button`
-    font-family: 'Poppins', sans-serif;
-    font-weight: 400;
-    font-size: 16px;
-    width: 146px;
-    height: 38px;
-    border-radius: 8px;
-    border: none;
-    background-color: red;
-    color: white;
-    z-index: 2;
-`
 
 export const StyleDiv = styled.div`
     height: 4vh;

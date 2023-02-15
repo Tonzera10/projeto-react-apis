@@ -13,7 +13,7 @@ export const PokemonListPage = () => {
     <>
       <Header />
       <StyleList>
-        <StyleH1>Todos Pokemons</StyleH1>
+        <StyleH1>Todos Pokémons</StyleH1>
         { filteredPokeList().map((pokeCard, index) => {
       let color = "";
       switch (pokeCard.types[0].type.name) {

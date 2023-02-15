@@ -76,7 +76,7 @@ export const ButtonRemove = styled.button`
     height: 38px;
     border-radius: 8px;
     border: none;
-    background-color: red;
+    background-color: #FF6262;
     color: white;
     z-index: 2;
 `

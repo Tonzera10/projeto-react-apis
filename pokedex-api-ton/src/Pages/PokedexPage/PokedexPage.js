@@ -12,7 +12,7 @@ export const PokedexPage = () => {
     <>
       <Header />
       <StyleList>
-        <StyleTitle>Meus Pokemons</StyleTitle>
+        <StyleTitle>Meus Pokémons</StyleTitle>
         {pokedex.map((pokeCard) => {
       let color = "";
       switch (pokeCard.types[0].type.name) {

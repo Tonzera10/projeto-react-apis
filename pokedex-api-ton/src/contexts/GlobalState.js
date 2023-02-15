@@ -53,7 +53,6 @@ function GlobalState({ children }) {
     try {
       const response = await axios.get(`https://pokeapi.co/api/v2/pokemon/${id}`)
       setDetails(response.data)
-      console.log(response, "certo");
     }catch (error) {
       alert(error.response)
     }

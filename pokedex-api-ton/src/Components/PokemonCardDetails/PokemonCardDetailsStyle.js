@@ -14,6 +14,7 @@ export const StyleCardDetails = styled.div`
     padding-left: 23px;
     padding-top: 25px;
     gap: 34px;
+    
 `
 export const DivImg = styled.div`
     display: flex;
@@ -33,7 +34,7 @@ export const StyleStats = styled.div`
     width: 343px;
     height: 613px;
     padding: 20px;
-    gap: 10px;
+    gap: 20px;
     border-radius: 8px;
 ` 
 export const StatsBar = styled.div`
@@ -43,7 +44,7 @@ export const StatsBar = styled.div`
 `
 export const Atributes = styled.p`
 font-family: 'Poppins', sans-serif;
-font-size: 12px;
+font-size: 14px;
 font-weight: 400;
 line-height: 14px;
 text-transform: capitalize;
@@ -71,7 +72,8 @@ export const ProgressBar = styled.div`
     background-color: hsl( calc(var(--progress) * 1.2) , 80%, 50%);
 `
 export const StyleDiv = styled.div`
-    height: 4vh;
+    height: 12vh;
+    z-index: 1;
 ` 
 export const StyleId = styled.p`
     font-family: 'Inter', sans-serif;
@@ -88,25 +90,18 @@ export const StyleName = styled.p`
 `
 export const ImgPokemon = styled.img`
     width: 193px;
-    height: 193px;
+    min-height: 193px;
     position: relative;
-    top: -135px;
-    left: 210px;
+    bottom: 210px;
+    left: 440px;
     z-index: 2;
-    
-`
-export const ImgPokebola = styled.img`
-    width: 245.73px;
-    height: 210.73px;
-    position: relative;  
-    top : -280px;
-    left: 170px;
-    z-index: 1;
     
 `
 export const StyleClass = styled.div`
     display: flex;
     gap: 7px;
+    margin-top: 10px;
+    z-index: 1;
 `
 
 export const DetailAndCaptur = styled.div`
@@ -115,33 +110,44 @@ export const DetailAndCaptur = styled.div`
     align-items: center;
 
 `
-export const StyleDetail = styled.p`
-    color: white;
-    font-family: 'Poppins', sans-serif;
-    font-weight: 700;
-    font-size: 16px;
-    text-decoration-line: underline;
-` 
-export const ButtonCaptur = styled.button`
-    font-family: 'Poppins', sans-serif;
-    font-weight: 400;
-    font-size: 16px;
-    width: 146px;
-    height: 38px;
-    border-radius: 8px;
-    border: none;
-    z-index: 2;
+export const StyleDetailsPokemons = styled.div`
+    display: flex;
+    flex-direction: column;
 `
-export const ButtonRemove = styled.button`
-    font-family: 'Poppins', sans-serif;
-    font-weight: 400;
-    font-size: 16px;
-    width: 146px;
-    height: 38px;
-    border-radius: 8px;
-    border: none;
-    background-color: red;
-    color: white;
-    z-index: 2;
+export const PokeDetails = styled.img`
+    position: relative;
+    bottom: 770px;
+    right: 110px;
 `
 
+export const StyleMoves = styled.div`
+    display: flex;
+    flex-direction: column;
+    width: 292px;
+    min-height: 453px;
+    background-color: white;
+    position: relative;
+    bottom: 135px;
+    border-radius: 8px;
+    padding: 18px;
+    gap: 20px;
+    z-index: 1;
+`
+export const Moves = styled.p`
+    font-family: 'Poppins', sans-serif;
+    font-size: 14px;
+    font-weight: 400;
+    line-height: 14px;
+    text-transform: capitalize;
+    padding: 10px;
+    background-color: #ECECEC;
+    border: 1px dashed rgba(0, 0, 0, 0.14);
+    border-radius: 12px;
+    width: 150px;
+`
+
+export const TextStatsAndMoves = styled.p`
+    font-size: 24px;
+    font-weight: 800;
+    font-family: 'Inter', sans-serif;
+`

@@ -55,13 +55,13 @@ function Header() {
               </ButtonBackAll>
             </StyleBackAll>
             <StyleImg src={pokemonHeader} />
-            {findPokemon(pokedex) ? (
+            {findPokemon(details) ? (
               <ButtonCaptur onClick={() => addToPokedex(details)}>
-                Capturar!
+                Adicionar na Pokédex
               </ButtonCaptur>
             ) : (
               <ButtonRemove onClick={() => removeFromPokedex(details)}>
-                Excluir!
+                Remover da Pokédex
               </ButtonRemove>
             )}
           </StyleHeader>

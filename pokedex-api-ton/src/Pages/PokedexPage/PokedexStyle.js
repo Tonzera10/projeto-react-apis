@@ -2,7 +2,7 @@ import styled from "styled-components";
 
 export const StyleList = styled.div`
     background-color: #5E5E5E;
-    height: auto;
+    min-height: 80vh;
     width: 100vw;
     padding-left: 40px;
     display: flex;

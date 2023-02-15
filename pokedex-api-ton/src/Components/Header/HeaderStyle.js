@@ -41,13 +41,14 @@ export const ButtonRemove = styled.button`
     font-family: 'Poppins', sans-serif;
     font-weight: 400;
     font-size: 16px;
-    width: 146px;
-    height: 38px;
+    width: 226px;
+    height: 57px;
     border-radius: 8px;
     border: none;
-    background-color: red;
+    background-color: #FF6262;
     color: white;
     z-index: 2;
+    margin-left: 200px;
 `
 export const ButtonBackAll = styled.button`
     font-family: 'Poppins', sans-serif;

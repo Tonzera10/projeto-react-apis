@@ -1,17 +1,37 @@
 import { useContext, useEffect } from "react";
-import { useNavigate, useParams } from "react-router-dom";
+import { useParams } from "react-router-dom";
 import { GlobalContext } from "../../contexts/GlobalContext";
 import GetType from "../type/GetType";
-import pokebola from "../../assets/pokebolaFundo.png";
-import { goToDetails } from "../../router/cordinator";
-import { Atributes, AtributesValue, ButtonCaptur, ButtonRemove, DetailAndCaptur, DivImg, ImgDetails, ImgPokebola, ImgPokemon, ProgressBar, StatsBar, StyleCardDetails, StyleCardFull, StyleClass, StyleDetail, StyleDiv, StyleId, StyleName, StylePrograss, StyleStats } from "./PokemonCardDetailsStyle";
-
+import {
+  Atributes,
+  AtributesValue,
+  DetailAndCaptur,
+  DivImg,
+  ImgDetails,
+  ImgPokemon,
+  Moves,
+  PokeDetails,
+  ProgressBar,
+  StatsBar,
+  StyleCardDetails,
+  StyleCardFull,
+  StyleClass,
+  StyleDetailsPokemons,
+  StyleDiv,
+  StyleId,
+  StyleMoves,
+  StyleName,
+  StylePrograss,
+  StyleStats,
+  TextStatsAndMoves,
+} from "./PokemonCardDetailsStyle";
+import pokeDetails from "../../assets/pokebolaDetails.png"
 
 function PokemonCardDetails() {
   const context = useContext(GlobalContext);
-  const { addToPokedex, removeFromPokedex, findPokemon, details, getDetails } = context;
-  const navigate = useNavigate();
-  const {id} = useParams()
+  const { details, getDetails } =
+    context;
+  const { id } = useParams();
 
   let color = "";
   switch (details?.types?.length && details.types[0].type?.name) {
@@ -36,8 +56,8 @@ function PokemonCardDetails() {
   }
 
   useEffect(() => {
-    getDetails(id)
-  }, [])
+    getDetails(id);
+  }, []);
 
   return (
     <StyleCardFull key={details?.id}>
@@ -47,34 +67,45 @@ function PokemonCardDetails() {
           <ImgDetails src={details?.sprites?.back_default} />
         </DivImg>
         <StyleStats>
-          <p>Base stats</p>
-          {details?.stats?.length && details.stats.map((pokemon, index) => {
-            return (
-              <StatsBar key={index}>
-                <Atributes>{pokemon.stat.name}</Atributes>
-                <AtributesValue>{pokemon.base_stat}</AtributesValue>
-                <StylePrograss>
-                  <ProgressBar value={pokemon.base_stat}></ProgressBar>
-                </StylePrograss>
-              </StatsBar>
-            );
-          })}
+          <TextStatsAndMoves>Base stats</TextStatsAndMoves>
+          {details?.stats?.length &&
+            details.stats.map((pokemon, index) => {
+              return (
+                <StatsBar key={index}>
+                  <Atributes>{pokemon.stat.name}</Atributes>
+                  <AtributesValue>{pokemon.base_stat}</AtributesValue>
+                  <StylePrograss>
+                    <ProgressBar value={pokemon.base_stat}></ProgressBar>
+                  </StylePrograss>
+                </StatsBar>
+              );
+            })}
         </StyleStats>
-        <StyleDiv>
-          <StyleId>#{details?.id}</StyleId>
-          <StyleName>{details?.name}</StyleName>
+        <StyleDetailsPokemons>
+          <StyleDiv>
+            <StyleId>#{details?.id}</StyleId>
+            <StyleName>{details?.name}</StyleName>
+          </StyleDiv>
+          <StyleClass>
+            <GetType pokeCard={details} />
+          </StyleClass>
           <ImgPokemon
-            src={details?.sprites?.other?.length && details.sprits.other["official-artwork"].front_default}
+            src={details?.sprits?.other?.length && details?.sprits?.other["official-artwork"].front_default}
           />
-          <ImgPokebola src={pokebola} />
-        </StyleDiv>
-        <StyleClass>
-          <GetType pokeCard={details} />
-        </StyleClass>
-        <DetailAndCaptur>
-          
-          
-        </DetailAndCaptur>
+          <StyleMoves>
+            <TextStatsAndMoves>Moves:</TextStatsAndMoves>
+            {details?.moves?.length && details?.moves?.map((pokemon, index) => {
+              return(
+                index < 5 &&
+                <Moves>{pokemon.move.name}</Moves>
+                )
+                
+              })}
+
+          </StyleMoves>
+            <PokeDetails src={pokeDetails}/>
+        </StyleDetailsPokemons>
+        <DetailAndCaptur></DetailAndCaptur>
       </StyleCardDetails>
     </StyleCardFull>
   );

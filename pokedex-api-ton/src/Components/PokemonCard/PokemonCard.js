@@ -1,6 +1,5 @@
 import {
   ButtonCaptur,
-  ButtonRemove,
   DetailAndCaptur,
   ImgPokebola,
   ImgPokemon,
@@ -21,7 +20,7 @@ import { goToDetails } from "../../router/cordinator";
 
 function PokemonCard({pokeCard, color, key}) {
   const context = useContext(GlobalContext);
-  const { addToPokedex, removeFromPokedex, findPokemon, pokeList } =
+  const { addToPokedex } =
     context;
   const navigate = useNavigate();
   
@@ -48,16 +47,10 @@ function PokemonCard({pokeCard, color, key}) {
                 }}
               >
                 Detalhes
-              </StyleDetail>
-              {findPokemon ? (
+              </StyleDetail>        
                 <ButtonCaptur onClick={() => addToPokedex(pokeCard)}>
                   Capturar!
                 </ButtonCaptur>
-              ) : (
-                <ButtonRemove onClick={() => removeFromPokedex(pokeCard)}>
-                  Remover!
-                </ButtonRemove>
-              )}
             </DetailAndCaptur>
           </StyleCard>
         </StyleCardFull>
