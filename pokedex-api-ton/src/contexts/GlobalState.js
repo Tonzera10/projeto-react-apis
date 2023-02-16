@@ -7,6 +7,8 @@ function GlobalState({ children }) {
   const [pokeList, setPokeList] = useState([]);
   const [pokedex, setPokedex] = useState([]);
   const [details, setDetails] = useState({});
+  const [gotcha, setGotcha] = useState(false);
+  const [alertRemove, setAlertRemove] = useState(false)
 
   useEffect(() => {
     getPokemons();
@@ -66,11 +68,6 @@ function GlobalState({ children }) {
         )
     );
 
-  const findPokemon = (pokemonToFind) => {
-    pokedex.find(
-      (pokemonInPokedex) => pokemonInPokedex.name === pokemonToFind.name
-    ); 
-  };
 
   const addToPokedex = (pokemonToAdd) => {
     const pokeFind = pokedex.find(
@@ -80,6 +77,7 @@ function GlobalState({ children }) {
     if (!pokeFind) {
       const newPokedex = [...pokedex, pokemonToAdd];
       setPokedex(newPokedex);
+      setGotcha(true)
     }
   };
 
@@ -88,18 +86,23 @@ function GlobalState({ children }) {
       (pokemonInPokedex) => pokemonInPokedex.name !== pokemonToRemove.name
     );
     setPokedex(newPokedex);
+    setAlertRemove(true)
   };
+
 
   const data = {
     pokeList,
     pokedex,
     addToPokedex,
     removeFromPokedex,
-    findPokemon,
     details,
     filteredPokeList,
     setDetails,
-    getDetails
+    getDetails,
+    gotcha,
+    setGotcha,
+    alertRemove,
+    setAlertRemove
   };
 
   return (

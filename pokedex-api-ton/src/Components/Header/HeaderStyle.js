@@ -31,11 +31,14 @@ export const ButtonCaptur = styled.button`
     font-family: 'Poppins', sans-serif;
     font-weight: 400;
     font-size: 16px;
-    width: 146px;
-    height: 38px;
+    width: 226px;
+    height: 57px;
     border-radius: 8px;
     border: none;
     z-index: 2;
+    background-color: #33A4F5;
+    color: white;
+    margin-left: 200px;
 `
 export const ButtonRemove = styled.button`
     font-family: 'Poppins', sans-serif;
@@ -60,6 +63,15 @@ export const ButtonBackAll = styled.button`
     border: none;
     text-decoration-line: underline;
     background-color: white;
+    animation: imgMain 0.5s;
+    @keyframes imgMain {
+        from{            
+            top: 100;
+        }
+        to{            
+            top: 0; 
+        }
+    }
 `
 export const StyleBackAll = styled.div`
     display: flex;

@@ -1,4 +1,5 @@
 import { useContext } from "react";
+import Alert from "../../Components/Alert/Alert";
 import Header from "../../Components/Header/Header";
 import PokemonCard from "../../Components/PokemonCard/PokemonCard";
 import { GlobalContext } from "../../contexts/GlobalContext";
@@ -6,11 +7,12 @@ import { StyleH1, StyleList } from "./PokemonListStyle";
 
 export const PokemonListPage = () => {
   const context = useContext(GlobalContext);
-  const { filteredPokeList } =
+  const { filteredPokeList, gotcha } =
     context;
 
   return (
     <>
+      {gotcha && <Alert main={"Gotcha!"} text={"O Pokemons foi adicionado à Pokedex"}/>}
       <Header />
       <StyleList>
         <StyleH1>Todos Pokémons</StyleH1>

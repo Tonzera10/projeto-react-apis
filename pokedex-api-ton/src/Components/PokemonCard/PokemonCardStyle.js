@@ -28,7 +28,17 @@ export const ImgPokemon = styled.img`
     top: -135px;
     left: 210px;
     z-index: 2;
-    
+    animation: imgMain 0.5s linear;
+    @keyframes imgMain {
+        from{
+            opacity: 0;
+            left: 0;
+        }
+        to{
+            opacity: 1;
+            left: 20; 
+        }
+    }
 `
 export const ImgPokebola = styled.img`
     width: 245.73px;

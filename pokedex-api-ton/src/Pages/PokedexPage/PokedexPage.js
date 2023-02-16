@@ -1,4 +1,5 @@
 import { useContext } from "react";
+import Alert from "../../Components/Alert/Alert";
 import Header from "../../Components/Header/Header";
 import PokemonCardPokedex from "../../Components/PokemonCardPokedex/PokemonCardPokedex";
 import { GlobalContext } from "../../contexts/GlobalContext";
@@ -6,10 +7,11 @@ import { StyleList, StyleTitle } from "./PokedexStyle";
 
 export const PokedexPage = () => {
   const context = useContext(GlobalContext);
-  const { pokedex } = context;
+  const { pokedex, alertRemove } = context;
 
   return (
     <>
+      {alertRemove && <Alert main={"Oh, no"} text={"O Pokemon foi removida da Pokedex"}/>}
       <Header />
       <StyleList>
         <StyleTitle>Meus Pokémons</StyleTitle>

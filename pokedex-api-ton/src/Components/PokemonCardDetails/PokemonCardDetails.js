@@ -58,6 +58,7 @@ function PokemonCardDetails() {
   useEffect(() => {
     getDetails(id);
   }, []);
+  console.log(details)
 
   return (
     <StyleCardFull key={details?.id}>
@@ -90,7 +91,7 @@ function PokemonCardDetails() {
             <GetType pokeCard={details} />
           </StyleClass>
           <ImgPokemon
-            src={details?.sprits?.other?.length && details?.sprits?.other["official-artwork"].front_default}
+            src={details?.sprites?.other["official-artwork"].front_default}
           />
           <StyleMoves>
             <TextStatsAndMoves>Moves:</TextStatsAndMoves>

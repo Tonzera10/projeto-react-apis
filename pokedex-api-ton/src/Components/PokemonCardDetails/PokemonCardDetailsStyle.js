@@ -94,8 +94,18 @@ export const ImgPokemon = styled.img`
     position: relative;
     bottom: 210px;
     left: 440px;
-    z-index: 2;
-    
+    z-index: 9;
+    animation: imgMain 0.5s linear;
+    @keyframes imgMain {
+        from{
+            opacity: 0;
+            left: 0;
+        }
+        to{
+            opacity: 1;
+            left: 20; 
+        }
+    }
 `
 export const StyleClass = styled.div`
     display: flex;
