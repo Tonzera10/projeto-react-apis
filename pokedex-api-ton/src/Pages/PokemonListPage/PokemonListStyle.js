@@ -15,14 +15,14 @@ export const StyleH1 = styled.h1`
     font-weight: 700;
     font-family: 'Poppins', sans-serif;
     padding: 40px 0;
-    width: 100vw;
     animation: pokeList 0.5s;
     @keyframes pokeList {
         from{
-            transform: translateY(-50px);
+            transform: translateY(-300px);
             color: black;
             text-decoration: underline;
             scale: 0.5;
+            left: 0;
         }
         to{
             transform: scale(1);
@@ -30,4 +30,7 @@ export const StyleH1 = styled.h1`
             color: white;
         }
     }
+`
+export const StileTitle = styled.div`
+    width: 100vw;
 `
