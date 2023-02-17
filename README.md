@@ -7,9 +7,11 @@ Este projeto terá como fonte de dados para a sua criação a [Poke Api](https:/
 ## Índice
 - <a href="#-funcionalidades">Funcionalidades do Projeto</a>
 - <a href="#-layout">Layout</a>
+- <a href="#-demonstracao">Demonstração</a>
 - <a href="#-rodar">Como rodar esse projeto?</a>
 - <a href="#-tecnologias-utilizadas">Tecnologias Utilizadas</a>
 - <a href="#-autor">Autor</a>
+- <a href="#-proximos-passos">Próximos passos</a>
 
 ## 📱 Funcionalidades do Projeto
 - [x] Adicionar na Pokédex
@@ -20,6 +22,9 @@ Este projeto terá como fonte de dados para a sua criação a [Poke Api](https:/
 ![pokeList](./pokedex-api-ton/src/assets/Readme/pokeList.png)
 ![pokedex](./pokedex-api-ton/src/assets/Readme/pokedex.png)
 ![detalhes](./pokedex-api-ton/src/assets/Readme/detalhes.png)
+
+## Demonstração
+[Link de Demonstração](https://projeto-react-apis-pi.vercel.app/)
 
 
 ## Como rodar esse projeto?
@@ -56,6 +61,8 @@ acesse pelo navegador: http://localhost:3000
 
 [Linkedin](https://www.linkedin.com/in/everton-mello-51b72023a/)
 
+## Próximos passos
+- [] Deixar o projeto responsivo
+- [] Adicionar mais Pokémons
 
 
-- Link do projeto [Pokedex](https://projeto-react-apis-pi.vercel.app/).
