@@ -3,7 +3,8 @@ import Alert from "../../Components/Alert/Alert";
 import Header from "../../Components/Header/Header";
 import PokemonCardDetails from "../../Components/PokemonCardDetails/PokemonCardDetails";
 import { GlobalContext } from "../../contexts/GlobalContext";
-import { StyleH1, StyleList } from "./PokemonDetailStyle";
+import { ImgPokebola, StyleH1, StyleList } from "./PokemonDetailStyle";
+import pokebola from "../../assets/pokebolaDetails.png"
 
 export const PokemonDetailPage = () => {
   const context =useContext(GlobalContext)
@@ -16,6 +17,7 @@ export const PokemonDetailPage = () => {
       <Header />
       <StyleList>
         <StyleH1>Detalhes</StyleH1>
+        <ImgPokebola src={pokebola}/>
         <PokemonCardDetails/>
       </StyleList>
     </>

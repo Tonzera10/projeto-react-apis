@@ -3,6 +3,7 @@ import styled from "styled-components";
 export const StyleCardFull = styled.div`
    display: flex;
    flex-wrap: wrap;
+   z-index: 1;
 `
 export const StyleCardDetails = styled.div`
     width: 1389px;
@@ -34,17 +35,19 @@ export const StyleStats = styled.div`
     width: 343px;
     height: 613px;
     padding: 20px;
-    gap: 20px;
+    gap: 10px;
     border-radius: 8px;
 ` 
 export const StatsBar = styled.div`
     width: 307px;
     display: grid;
     grid-template-columns: 2fr 1fr 3fr;
+    border-top: 1px solid rgb(0, 0, 0, 0.1);
+    padding-top: 10px;
 `
 export const Atributes = styled.p`
 font-family: 'Poppins', sans-serif;
-font-size: 14px;
+font-size: 16px;
 font-weight: 400;
 line-height: 14px;
 text-transform: capitalize;
@@ -70,6 +73,7 @@ export const ProgressBar = styled.div`
     display: flex;
     width: calc(var(--progress) * 1%);
     background-color: hsl( calc(var(--progress) * 1.2) , 80%, 50%);
+    border-radius: 8px;
 `
 export const StyleDiv = styled.div`
     height: 12vh;
@@ -160,4 +164,23 @@ export const TextStatsAndMoves = styled.p`
     font-size: 24px;
     font-weight: 800;
     font-family: 'Inter', sans-serif;
+`
+export const TotalStyle = styled.div`
+    display: flex;
+    gap: 40px;
+    border-top: 1px solid rgb(0, 0, 0, 0.1);
+    padding-top: 10px;
+`
+
+export const Total = styled.p`
+    font-family: 'Poppins', sans-serif;
+    font-size: 16px;
+    font-weight: 400;
+    line-height: 14px;
+`
+export const TotalValue = styled.p`
+    font-family: 'Poppins', sans-serif;
+    font-size: 16px;
+    font-weight: 400;
+    line-height: 19px;
 `

@@ -18,4 +18,13 @@ export const StyleTitle = styled.h1`
     padding: 50px 0;
     width: 100vw;
     height: 172px;
+    animation: myPoke 0.5s;
+    @keyframes myPoke {
+        from{
+            opacity: 0;
+        }
+        to{
+            opacity: 1;
+        }
+    }
 `

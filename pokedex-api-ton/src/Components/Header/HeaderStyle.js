@@ -63,13 +63,16 @@ export const ButtonBackAll = styled.button`
     border: none;
     text-decoration-line: underline;
     background-color: white;
-    animation: imgMain 0.5s;
-    @keyframes imgMain {
+    animation: todosPoke 0.5s;
+    @keyframes todosPoke {
         from{            
-            top: 100;
+            transform: translateY(50px);
+            scale: 2;
         }
         to{            
-            top: 0; 
+            transform: scale(1);
+            top: 0;
+            
         }
     }
 `

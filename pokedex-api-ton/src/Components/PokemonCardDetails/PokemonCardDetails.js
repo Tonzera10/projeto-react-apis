@@ -24,6 +24,9 @@ import {
   StylePrograss,
   StyleStats,
   TextStatsAndMoves,
+  Total,
+  TotalStyle,
+  TotalValue,
 } from "./PokemonCardDetailsStyle";
 import pokeDetails from "../../assets/pokebolaDetails.png"
 
@@ -70,17 +73,21 @@ function PokemonCardDetails() {
         <StyleStats>
           <TextStatsAndMoves>Base stats</TextStatsAndMoves>
           {details?.stats?.length &&
-            details.stats.map((pokemon, index) => {
+            details.stats.map((pokemon) => {
               return (
-                <StatsBar key={index}>
+                <StatsBar>
                   <Atributes>{pokemon.stat.name}</Atributes>
                   <AtributesValue>{pokemon.base_stat}</AtributesValue>
                   <StylePrograss>
                     <ProgressBar value={pokemon.base_stat}></ProgressBar>
-                  </StylePrograss>
+                  </StylePrograss> 
                 </StatsBar>
               );
             })}
+            <TotalStyle>
+              <Total>Total:</Total> 
+              <TotalValue>{details?.stats?.reduce((pokemon, atributeValue) => Number(pokemon + atributeValue.base_stat), [] )}</TotalValue>
+            </TotalStyle>
         </StyleStats>
         <StyleDetailsPokemons>
           <StyleDiv>

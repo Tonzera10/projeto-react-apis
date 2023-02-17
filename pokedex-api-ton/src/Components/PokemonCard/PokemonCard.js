@@ -41,7 +41,7 @@ function PokemonCard({pokeCard, color, key}) {
               <GetType pokeCard={pokeCard} />
             </StyleClass>
             <DetailAndCaptur>
-              <StyleDetail
+              <StyleDetail color={color}
                 onClick={() => {
                   goToDetails(navigate, pokeCard.id);
                 }}

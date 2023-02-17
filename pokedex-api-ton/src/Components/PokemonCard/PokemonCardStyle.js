@@ -72,12 +72,14 @@ export const DetailAndCaptur = styled.div`
 
 `
 
-export const StyleDetail = styled.p`
+export const StyleDetail = styled.button`
     color: white;
     font-family: 'Poppins', sans-serif;
     font-weight: 700;
     font-size: 16px;
     text-decoration-line: underline;
+    border: none;
+    background-color: ${(props) => props.color};
 `
 
 
