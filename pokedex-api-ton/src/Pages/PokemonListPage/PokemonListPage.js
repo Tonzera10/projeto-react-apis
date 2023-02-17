@@ -1,13 +1,15 @@
 import { useContext } from "react";
 import Alert from "../../Components/Alert/Alert";
+import Error from "../../Components/Error/Error";
 import Header from "../../Components/Header/Header";
+import Loading from "../../Components/Loading/Loading";
 import PokemonCard from "../../Components/PokemonCard/PokemonCard";
 import { GlobalContext } from "../../contexts/GlobalContext";
-import { StyleH1, StyleList } from "./PokemonListStyle";
+import { StileTitle, StyleH1, StyleList } from "./PokemonListStyle";
 
 export const PokemonListPage = () => {
   const context = useContext(GlobalContext);
-  const { filteredPokeList, gotcha } =
+  const { filteredPokeList, gotcha, isLoading, error } =
     context;
 
   return (
@@ -15,8 +17,13 @@ export const PokemonListPage = () => {
       {gotcha && <Alert main={"Gotcha!"} text={"O Pokemons foi adicionado à Pokedex"}/>}
       <Header />
       <StyleList>
-        <StyleH1>Todos Pokémons</StyleH1>
-        { filteredPokeList().map((pokeCard, index) => {
+        <StileTitle>
+          <StyleH1>Todos Pokémons</StyleH1>
+        </StileTitle>
+        {isLoading && <Loading/>}
+		    {!isLoading && error && <Error/>}
+		    {!isLoading && 
+         filteredPokeList().map((pokeCard, index) => {
       let color = "";
       switch (pokeCard.types[0].type.name) {
         case "grass":

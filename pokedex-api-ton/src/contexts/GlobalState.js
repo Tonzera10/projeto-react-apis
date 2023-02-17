@@ -9,6 +9,8 @@ function GlobalState({ children }) {
   const [details, setDetails] = useState({});
   const [gotcha, setGotcha] = useState(false);
   const [alertRemove, setAlertRemove] = useState(false)
+  const [isLoading, setIsLoading] = useState(false)
+  const [error, setError] = useState(false)
 
   useEffect(() => {
     getPokemons();
@@ -34,15 +36,19 @@ function GlobalState({ children }) {
     const arrayPokemons = [];
 
     try {
+      setIsLoading(true)
       const response = await axios.get(`https://pokeapi.co/api/v2/pokemon/`);
       const poke = response.data.results;
 
       try {
         for (let i in poke) {
           let pokeInfo = await axios.get(poke[i].url);
+          setIsLoading(false)
           arrayPokemons.push(pokeInfo.data);
         }
       } catch (error) {
+        setIsLoading(false)
+        setError(true)
         console.log(error.response);
       }
       setPokeList(arrayPokemons);
@@ -102,7 +108,9 @@ function GlobalState({ children }) {
     gotcha,
     setGotcha,
     alertRemove,
-    setAlertRemove
+    setAlertRemove,
+    isLoading,
+    error
   };
 
   return (
