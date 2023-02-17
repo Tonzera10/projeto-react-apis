@@ -1,5 +1,9 @@
 import styled from "styled-components";
 
+export const StyleCardFull = styled.div`
+   display: flex;
+   flex-wrap: wrap;
+`
 export const StyleCard = styled.div`
     width: 440px;
     height: 210px;
@@ -12,15 +16,23 @@ export const StyleCard = styled.div`
     padding-top: 25px;
     gap: 34px;
 `
-export const StyleCardFull = styled.div`
-   display: flex;
-   flex-wrap: wrap;
-`
-export const StyleClass = styled.div`
-    display: flex;
-    gap: 7px;
-`
+export const StyleDiv = styled.div`
+    height: 4vh;
+` 
 
+export const StyleId = styled.p`
+    font-family: 'Inter', sans-serif;
+    font-weight: 700;
+    font-size: 16px;
+    color: white;
+`
+export const StyleName = styled.p`
+    font-family: 'Inter', sans-serif;
+    font-weight: 700;
+    font-size: 32px;
+    color: white;
+    text-transform: capitalize;
+`
 export const ImgPokemon = styled.img`
     width: 193px;
     height: 193px;
@@ -49,41 +61,24 @@ export const ImgPokebola = styled.img`
     z-index: 1;
     
 `
-
-export const StyleId = styled.p`
-    font-family: 'Inter', sans-serif;
-    font-weight: 700;
-    font-size: 16px;
-    color: white;
+export const StyleClass = styled.div`
+    display: flex;
+    gap: 7px;
 `
-
-export const StyleName = styled.p`
-    font-family: 'Inter', sans-serif;
-    font-weight: 700;
-    font-size: 32px;
-    color: white;
-    text-transform: capitalize;
-`
-
 export const DetailAndCaptur = styled.div`
     display: flex;
     gap: 175px;
     align-items: center;
 
 `
-
-export const StyleDetail = styled.button`
+export const StyleDetail = styled.p`
     color: white;
     font-family: 'Poppins', sans-serif;
     font-weight: 700;
     font-size: 16px;
     text-decoration-line: underline;
-    border: none;
-    background-color: ${(props) => props.color};
 `
-
-
-export const ButtonCaptur = styled.button`
+export const ButtonRemove = styled.button`
     font-family: 'Poppins', sans-serif;
     font-weight: 400;
     font-size: 16px;
@@ -91,11 +86,7 @@ export const ButtonCaptur = styled.button`
     height: 38px;
     border-radius: 8px;
     border: none;
+    background-color: #FF6262;
+    color: white;
     z-index: 2;
 `
-
-export const StyleDiv = styled.div`
-    height: 4vh;
-`  
-
-

@@ -1,5 +1,11 @@
+import pokebola from "../../assets/pokebolaFundo.png";
+import { useContext } from "react";
+import { GlobalContext } from "../../contexts/GlobalContext";
+import GetType from "../type/GetType";
+import { useNavigate } from "react-router-dom";
+import { goToDetails } from "../../router/cordinator";
 import {
-  ButtonCaptur,
+  ButtonRemove,
   DetailAndCaptur,
   ImgPokebola,
   ImgPokemon,
@@ -10,24 +16,17 @@ import {
   StyleDiv,
   StyleId,
   StyleName,
-} from "./PokemonCardStyle";
-import pokebola from "../../assets/pokebolaFundo.png";
-import { useContext } from "react";
-import { GlobalContext } from "../../contexts/GlobalContext";
-import GetType from "../type/GetType";
-import { useNavigate } from "react-router-dom";
-import { goToDetails } from "../../router/cordinator";
+} from "./PokemonCardPokedexStyle";
 
-function PokemonCard({pokeCard, color, key}) {
+function PokemonCardPokedex({pokeCard, color}) {
   const context = useContext(GlobalContext);
-  const { addToPokedex } =
-    context;
+  const { removeFromPokedex, inDetails } = context;
   const navigate = useNavigate();
-  
-  const renderPokeCardList = () => {
-  
+
+  const renderCardPokedex = () => {
+    
       return (
-        <StyleCardFull key={key}>
+        <StyleCardFull key={pokeCard.id}>
           <StyleCard color={color}>
             <StyleDiv>
               <StyleId>#{pokeCard.id}</StyleId>
@@ -41,23 +40,23 @@ function PokemonCard({pokeCard, color, key}) {
               <GetType pokeCard={pokeCard} />
             </StyleClass>
             <DetailAndCaptur>
-              <StyleDetail color={color}
+              <StyleDetail
                 onClick={() => {
                   goToDetails(navigate, pokeCard.id);
+                  inDetails(pokeCard);
                 }}
               >
                 Detalhes
-              </StyleDetail>        
-                <ButtonCaptur onClick={() => addToPokedex(pokeCard)}>
-                  Capturar!
-                </ButtonCaptur>
+              </StyleDetail>
+              <ButtonRemove onClick={() => removeFromPokedex(pokeCard)}>
+                Remover!
+              </ButtonRemove>
             </DetailAndCaptur>
           </StyleCard>
         </StyleCardFull>
       );
   };
-
-  return <>{renderPokeCardList()}</>;
+  return <>{renderCardPokedex()}</>;
 }
 
-export default PokemonCard;
+export default PokemonCardPokedex;

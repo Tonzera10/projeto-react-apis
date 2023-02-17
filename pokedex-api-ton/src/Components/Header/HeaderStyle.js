@@ -27,3 +27,61 @@ export const StyleButton = styled.button`
     grid-column: 3;
     margin-left: 200px;
 `
+export const ButtonCaptur = styled.button`
+    font-family: 'Poppins', sans-serif;
+    font-weight: 400;
+    font-size: 16px;
+    width: 226px;
+    height: 57px;
+    border-radius: 8px;
+    border: none;
+    z-index: 2;
+    background-color: #33A4F5;
+    color: white;
+    margin-left: 200px;
+`
+export const ButtonRemove = styled.button`
+    font-family: 'Poppins', sans-serif;
+    font-weight: 400;
+    font-size: 16px;
+    width: 226px;
+    height: 57px;
+    border-radius: 8px;
+    border: none;
+    background-color: #FF6262;
+    color: white;
+    z-index: 2;
+    margin-left: 200px;
+`
+export const ButtonBackAll = styled.button`
+    font-family: 'Poppins', sans-serif;
+    font-weight: 700;
+    font-size: 24px;
+    width: 210px;
+    height: 36px;
+    border-radius: 8px;
+    border: none;
+    text-decoration-line: underline;
+    background-color: white;
+    animation: todosPoke 0.5s;
+    @keyframes todosPoke {
+        from{            
+            transform: translateY(50px);
+            scale: 2;
+        }
+        to{            
+            transform: scale(1);
+            top: 0;
+            
+        }
+    }
+`
+export const StyleBackAll = styled.div`
+    display: flex;
+    align-items: center;
+    margin-left: 80px;
+`
+export const StyleSeta = styled.img`
+    width: 7.29px;
+    height: 14.58px;
+`
