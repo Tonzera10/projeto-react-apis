@@ -18,43 +18,42 @@ import GetType from "../type/GetType";
 import { useNavigate } from "react-router-dom";
 import { goToDetails } from "../../router/cordinator";
 
-function PokemonCard({pokeCard, color, key}) {
+function PokemonCard({ pokeCard, color, key }) {
   const context = useContext(GlobalContext);
-  const { addToPokedex } =
-    context;
+  const { addToPokedex } = context;
   const navigate = useNavigate();
-  
+
   const renderPokeCardList = () => {
-  
-      return (
-        <StyleCardFull key={key}>
-          <StyleCard color={color}>
-            <StyleDiv>
-              <StyleId>#{pokeCard.id}</StyleId>
-              <StyleName>{pokeCard.name}</StyleName>
-              <ImgPokemon
-                src={pokeCard.sprites.other["official-artwork"].front_default}
-              />
-              <ImgPokebola src={pokebola} />
-            </StyleDiv>
-            <StyleClass>
-              <GetType pokeCard={pokeCard} />
-            </StyleClass>
-            <DetailAndCaptur>
-              <StyleDetail color={color}
-                onClick={() => {
-                  goToDetails(navigate, pokeCard.id);
-                }}
-              >
-                Detalhes
-              </StyleDetail>        
-                <ButtonCaptur onClick={() => addToPokedex(pokeCard)}>
-                  Capturar!
-                </ButtonCaptur>
-            </DetailAndCaptur>
-          </StyleCard>
-        </StyleCardFull>
-      );
+    return (
+      <StyleCardFull key={key}>
+        <StyleCard color={color}>
+          <StyleDiv>
+            <StyleId>#{pokeCard.id}</StyleId>
+            <StyleName>{pokeCard.name}</StyleName>
+            <ImgPokemon
+              src={pokeCard.sprites.other["official-artwork"].front_default}
+            />
+            <ImgPokebola src={pokebola} />
+          </StyleDiv>
+          <StyleClass>
+            <GetType pokeCard={pokeCard} />
+          </StyleClass>
+          <DetailAndCaptur>
+            <StyleDetail
+              color={color}
+              onClick={() => {
+                goToDetails(navigate, pokeCard.id);
+              }}
+            >
+              Detalhes
+            </StyleDetail>
+            <ButtonCaptur onClick={() => addToPokedex(pokeCard)}>
+              Capturar!
+            </ButtonCaptur>
+          </DetailAndCaptur>
+        </StyleCard>
+      </StyleCardFull>
+    );
   };
 
   return <>{renderPokeCardList()}</>;

@@ -55,7 +55,8 @@ function Header() {
               </ButtonBackAll>
             </StyleBackAll>
             <StyleImg src={pokemonHeader} />
-            {pokedex.find((pokemon) => pokemon.id === details.id) === undefined ? (
+            {pokedex.find((pokemon) => pokemon.id === details.id) ===
+            undefined ? (
               <ButtonCaptur onClick={() => addToPokedex(details)}>
                 Adicionar na Pokédex
               </ButtonCaptur>

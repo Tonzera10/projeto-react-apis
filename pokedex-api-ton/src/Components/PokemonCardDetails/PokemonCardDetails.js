@@ -28,12 +28,11 @@ import {
   TotalStyle,
   TotalValue,
 } from "./PokemonCardDetailsStyle";
-import pokeDetails from "../../assets/pokebolaDetails.png"
+import pokeDetails from "../../assets/pokebolaDetails.png";
 
 function PokemonCardDetails() {
   const context = useContext(GlobalContext);
-  const { details, getDetails } =
-    context;
+  const { details, getDetails } = context;
   const { id } = useParams();
 
   let color = "";
@@ -61,7 +60,7 @@ function PokemonCardDetails() {
   useEffect(() => {
     getDetails(id);
   }, []);
-  console.log(details)
+  console.log(details);
 
   return (
     <StyleCardFull key={details?.id}>
@@ -80,14 +79,20 @@ function PokemonCardDetails() {
                   <AtributesValue>{pokemon.base_stat}</AtributesValue>
                   <StylePrograss>
                     <ProgressBar value={pokemon.base_stat}></ProgressBar>
-                  </StylePrograss> 
+                  </StylePrograss>
                 </StatsBar>
               );
             })}
-            <TotalStyle>
-              <Total>Total:</Total> 
-              <TotalValue>{details?.stats?.reduce((pokemon, atributeValue) => Number(pokemon + atributeValue.base_stat), [] )}</TotalValue>
-            </TotalStyle>
+          <TotalStyle>
+            <Total>Total:</Total>
+            <TotalValue>
+              {details?.stats?.reduce(
+                (pokemon, atributeValue) =>
+                  Number(pokemon + atributeValue.base_stat),
+                []
+              )}
+            </TotalValue>
+          </TotalStyle>
         </StyleStats>
         <StyleDetailsPokemons>
           <StyleDiv>
@@ -102,16 +107,12 @@ function PokemonCardDetails() {
           />
           <StyleMoves>
             <TextStatsAndMoves>Moves:</TextStatsAndMoves>
-            {details?.moves?.length && details?.moves?.map((pokemon, index) => {
-              return(
-                index < 5 &&
-                <Moves>{pokemon.move.name}</Moves>
-                )
-                
+            {details?.moves?.length &&
+              details?.moves?.map((pokemon, index) => {
+                return index < 5 && <Moves>{pokemon.move.name}</Moves>;
               })}
-
           </StyleMoves>
-            <PokeDetails src={pokeDetails}/>
+          <PokeDetails src={pokeDetails} />
         </StyleDetailsPokemons>
         <DetailAndCaptur></DetailAndCaptur>
       </StyleCardDetails>

@@ -59,7 +59,7 @@ acesse pelo navegador: http://localhost:3000
 
 <img style="width:200px" src="https://github.com/Tonzera10.png"/>
 
-[Linkedin](https://www.linkedin.com/in/everton-mello-51b72023a/)
+[Linkedin](https://www.linkedin.com/in/ton-mello/)
 
 ## Próximos passos
 - [] Deixar o projeto responsivo
