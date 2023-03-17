@@ -1,4 +1,5 @@
 import styled from "styled-components";
+import px2vw from "../../utils/px2vw";
 
 export const StyleCardFull = styled.div`
    display: flex;
@@ -6,98 +7,98 @@ export const StyleCardFull = styled.div`
    z-index: 1;
 `
 export const StyleCardDetails = styled.div`
-    width: 1389px;
-    height: 663px;
-    border-radius: 37px;
+    width: ${px2vw(1389)};
+    height: ${px2vw(663)};
+    border-radius: ${px2vw(37)};
     display: flex;
     border: solid 1px black;
     background-color: ${(props) => props.color};
-    padding-left: 23px;
-    padding-top: 25px;
-    gap: 34px;
+    padding-left: ${px2vw(23)};
+    padding-top: ${px2vw(25)};
+    gap: ${px2vw(34)};
     
 `
 export const DivImg = styled.div`
     display: flex;
     flex-direction: column;
-    gap: 47px;
+    gap: ${px2vw(47)};
 `
 export const ImgDetails = styled.img`
     background-color: white;
-    border-radius: 8px;
-    width: 282px;
-    height: 282px;
+    border-radius: ${px2vw(8)};
+    width: ${px2vw(282)};
+    height: ${px2vw(282)};
 `
 export const StyleStats = styled.div`
     background-color: white;
     display: flex;
     flex-direction: column;
-    width: 343px;
-    height: 613px;
-    padding: 20px;
-    gap: 10px;
-    border-radius: 8px;
+    width: ${px2vw(343)};
+    height: ${px2vw(613)};
+    padding: ${px2vw(20)};
+    gap: ${px2vw(10)};
+    border-radius: ${px2vw(8)};
 ` 
 export const StatsBar = styled.div`
-    width: 307px;
+    width: ${px2vw(307)};
     display: grid;
     grid-template-columns: 2fr 1fr 3fr;
     border-top: 1px solid rgb(0, 0, 0, 0.1);
-    padding-top: 10px;
+    padding-top: ${px2vw(10)};
 `
 export const Atributes = styled.p`
 font-family: 'Poppins', sans-serif;
-font-size: 16px;
+font-size: ${px2vw(16)};
 font-weight: 400;
-line-height: 14px;
+line-height: ${px2vw(14)};
 text-transform: capitalize;
 `
 export const AtributesValue = styled.p`
     font-family: 'Poppins', sans-serif;
-    font-size: 16px;
+    font-size: ${px2vw(16)};
     font-weight: 400;
-    line-height: 19px;
+    line-height: ${px2vw(19)};
     text-align: center;
-    margin-left: 20px;
+    margin-left: ${px2vw(20)};
 `
 export const StylePrograss = styled.div`
     display: flex;
     flex-direction: column;
-    width: 200px;
-    padding-left: 20px;
+    width: ${px2vw(200)};
+    padding-left: ${px2vw(20)};
 `
 export const ProgressBar = styled.div`
     --progress: ${(props) => props.value};
-    height: 10px;
-    padding: 5px;
+    height: ${px2vw(10)};
+    padding: ${px2vw(5)};
     display: flex;
     width: calc(var(--progress) * 1%);
     background-color: hsl( calc(var(--progress) * 1.2) , 80%, 50%);
-    border-radius: 8px;
+    border-radius: ${px2vw(8)};
 `
 export const StyleDiv = styled.div`
-    height: 12vh;
+    height: ${px2vw(86)};
     z-index: 1;
 ` 
 export const StyleId = styled.p`
     font-family: 'Inter', sans-serif;
     font-weight: 700;
-    font-size: 16px;
+    font-size: ${px2vw(16)};
     color: white;
 `
 export const StyleName = styled.p`
     font-family: 'Inter', sans-serif;
     font-weight: 700;
-    font-size: 32px;
+    font-size: ${px2vw(32)};
     color: white;
     text-transform: capitalize;
 `
 export const ImgPokemon = styled.img`
-    width: 193px;
-    min-height: 193px;
+    width: ${px2vw(193)};
+    min-height: ${px2vw(193)};
     position: relative;
-    bottom: 210px;
-    left: 440px;
+    bottom: ${px2vw(210)};
+    left: ${px2vw(440)};
     z-index: 9;
     animation: imgMain 0.5s linear;
     @keyframes imgMain {
@@ -113,14 +114,14 @@ export const ImgPokemon = styled.img`
 `
 export const StyleClass = styled.div`
     display: flex;
-    gap: 7px;
-    margin-top: 10px;
+    gap: ${px2vw(7)};
+    margin-top: ${px2vw(10)};
     z-index: 1;
 `
 
 export const DetailAndCaptur = styled.div`
     display: flex;
-    gap: 175px;
+    gap: ${px2vw(175)};
     align-items: center;
 
 `
@@ -129,58 +130,59 @@ export const StyleDetailsPokemons = styled.div`
     flex-direction: column;
 `
 export const PokeDetails = styled.img`
+    width: ${px2vw(788)};
     position: relative;
-    bottom: 770px;
-    right: 110px;
+    bottom: ${px2vw(770)};
+    right: ${px2vw(110)};
 `
 
 export const StyleMoves = styled.div`
     display: flex;
     flex-direction: column;
-    width: 292px;
-    min-height: 453px;
+    width: ${px2vw(292)};
+    min-height: ${px2vw(453)};
     background-color: white;
     position: relative;
-    bottom: 135px;
-    border-radius: 8px;
-    padding: 18px;
-    gap: 20px;
+    bottom: ${px2vw(135)};
+    border-radius: ${px2vw(8)};
+    padding: ${px2vw(18)};
+    gap: ${px2vw(20)};
     z-index: 1;
 `
 export const Moves = styled.p`
     font-family: 'Poppins', sans-serif;
-    font-size: 14px;
+    font-size: ${px2vw(14)};
     font-weight: 400;
-    line-height: 14px;
+    line-height: ${px2vw(14)};
     text-transform: capitalize;
-    padding: 10px;
+    padding: ${px2vw(10)};
     background-color: #ECECEC;
     border: 1px dashed rgba(0, 0, 0, 0.14);
-    border-radius: 12px;
-    width: 150px;
+    border-radius: ${px2vw(12)};
+    width: ${px2vw(150)};
 `
 
 export const TextStatsAndMoves = styled.p`
-    font-size: 24px;
+    font-size: ${px2vw(24)};
     font-weight: 800;
     font-family: 'Inter', sans-serif;
 `
 export const TotalStyle = styled.div`
     display: flex;
-    gap: 40px;
+    gap: ${px2vw(40)};
     border-top: 1px solid rgb(0, 0, 0, 0.1);
-    padding-top: 10px;
+    padding-top: ${px2vw(10)};
 `
 
 export const Total = styled.p`
     font-family: 'Poppins', sans-serif;
-    font-size: 16px;
+    font-size: ${px2vw(16)};
     font-weight: 400;
-    line-height: 14px;
+    line-height: ${px2vw(14)};
 `
 export const TotalValue = styled.p`
     font-family: 'Poppins', sans-serif;
-    font-size: 16px;
+    font-size: ${px2vw(16)};
     font-weight: 400;
-    line-height: 19px;
+    line-height: ${px2vw(19)};
 `

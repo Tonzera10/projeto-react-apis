@@ -1,24 +1,26 @@
 import styled from "styled-components";
 
+import px2vw from "../../utils/px2vw";
+
 export const StyleList = styled.div`
     background-color: #5E5E5E;
-    width: 100vw;
-    padding-left: 40px;
+    width: ${px2vw(1440)};
+    padding-left: ${px2vw(40)};
     display: flex;
     flex-wrap: wrap;
-    gap: 50px 20px;
-    padding-bottom: 40px;
+    gap: ${px2vw(50)} ${px2vw(20)};
+    padding-bottom: ${px2vw(40)};
 `
 export const StyleH1 = styled.h1`
     color: white;
-    font-size: 48px;
+    font-size: ${px2vw(48)};
     font-weight: 700;
     font-family: 'Poppins', sans-serif;
-    padding: 40px 0;
+    padding: ${px2vw(40)} 0;
     animation: pokeList 0.5s;
     @keyframes pokeList {
         from{
-            transform: translateY(-300px);
+            transform: translateY(${px2vw(-300)});
             color: black;
             text-decoration: underline;
             scale: 0.5;
@@ -32,5 +34,5 @@ export const StyleH1 = styled.h1`
     }
 `
 export const StileTitle = styled.div`
-    width: 100vw;
+    width: ${px2vw(1440)};
 `

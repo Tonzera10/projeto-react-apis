@@ -60,7 +60,6 @@ function PokemonCardDetails() {
   useEffect(() => {
     getDetails(id);
   }, []);
-  console.log(details);
 
   return (
     <StyleCardFull key={details?.id}>
