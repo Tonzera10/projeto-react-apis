@@ -1,8 +1,9 @@
 import styled from "styled-components";
+import px2vw from "../../utils/px2vw";
 
 export const StyleHeader = styled.header`
-    width: auto;
-    height: 160px;
+    width: ${px2vw(1440)};
+    height: ${px2vw(160)};
     display: grid;
     grid-template-columns: repeat(3, 1fr);
     justify-content: center;
@@ -10,56 +11,57 @@ export const StyleHeader = styled.header`
 `
 
 export const StyleImg = styled.img`
-    width: 307px;
-    height: 113px;
+    width: ${px2vw(307)};
+    height: ${px2vw(113)};
     grid-column: 2;
-    margin-left: 100px;
+    margin-left: ${px2vw(100)};
 `
 
 export const StyleButton = styled.button`
     background-color: #33A4F5;
     color: white;
-    width: 287px;
-    height: 74px;
-    border-radius: 8px;
+    width: ${px2vw(287)};
+    height: ${px2vw(74)};
+    border-radius: ${px2vw(8)};
     font-family: 'Poppins', sans-serif;
     font-weight: 700;
+    font-size: ${px2vw(16)};
     grid-column: 3;
-    margin-left: 200px;
+    margin-left: ${px2vw(100)};
 `
 export const ButtonCaptur = styled.button`
     font-family: 'Poppins', sans-serif;
     font-weight: 400;
-    font-size: 16px;
-    width: 226px;
-    height: 57px;
-    border-radius: 8px;
+    font-size: ${px2vw(16)};
+    width: ${px2vw(226)};
+    height: ${px2vw(57)};
+    border-radius: ${px2vw(8)};
     border: none;
     z-index: 2;
     background-color: #33A4F5;
     color: white;
-    margin-left: 200px;
+    margin-left: ${px2vw(200)};
 `
 export const ButtonRemove = styled.button`
     font-family: 'Poppins', sans-serif;
     font-weight: 400;
-    font-size: 16px;
-    width: 226px;
-    height: 57px;
-    border-radius: 8px;
+    font-size: ${px2vw(16)};
+    width: ${px2vw(226)};
+    height: ${px2vw(57)};
+    border-radius: ${px2vw(8)};
     border: none;
     background-color: #FF6262;
     color: white;
     z-index: 2;
-    margin-left: 200px;
+    margin-left: ${px2vw(200)};
 `
 export const ButtonBackAll = styled.button`
     font-family: 'Poppins', sans-serif;
     font-weight: 700;
-    font-size: 24px;
-    width: 210px;
-    height: 36px;
-    border-radius: 8px;
+    font-size: ${px2vw(24)};
+    width: ${px2vw(210)};
+    height: ${px2vw(36)};
+    border-radius: ${px2vw(8)};
     border: none;
     text-decoration-line: underline;
     background-color: white;
@@ -79,9 +81,9 @@ export const ButtonBackAll = styled.button`
 export const StyleBackAll = styled.div`
     display: flex;
     align-items: center;
-    margin-left: 80px;
+    margin-left: ${px2vw(80)};
 `
 export const StyleSeta = styled.img`
-    width: 7.29px;
-    height: 14.58px;
+    width: ${px2vw(7.29)};
+    height: ${px2vw(14.58)};
 `

@@ -1,7 +1,8 @@
 import styled from "styled-components";
+import px2vw from "../../utils/px2vw";
 
 export const StyleImg = styled.img`
-    width: 300px;
+    width: ${px2vw(300)};
 `
 
 export const StyleLoading = styled.div`

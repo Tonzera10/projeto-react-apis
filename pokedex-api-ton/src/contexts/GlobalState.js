@@ -25,6 +25,7 @@ function GlobalState({ children }) {
     const pokemon = JSON.stringify(pokedex);
     localStorage.setItem("pokedex", pokemon);
   };
+  
   const getpokemonInPokedex = () => {
     const pokemons = JSON.parse(localStorage.getItem("pokedex"));
     if (pokemons?.length > 0) {
