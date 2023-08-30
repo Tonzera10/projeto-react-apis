@@ -1,9 +1,9 @@
 import { useContext } from "react";
 import Alert from "../../Components/Alert/Alert";
 import Header from "../../Components/Header/Header";
-import PokemonCardPokedex from "../../Components/PokemonCardPokedex/PokemonCardPokedex";
 import { GlobalContext } from "../../contexts/GlobalContext";
 import { StyleList, StyleTitle } from "./PokedexStyle";
+import PokemonCard from "../../Components/PokemonCard/PokemonCard";
 
 export const PokedexPage = () => {
   const context = useContext(GlobalContext);
@@ -15,7 +15,7 @@ export const PokedexPage = () => {
       <Header />
       <StyleList>
         <StyleTitle>Meus Pokémons</StyleTitle>
-        {pokedex.map((pokeCard) => {
+        {pokedex.map((pokeCard, index) => {
       let color = "";
       switch (pokeCard.types[0].type.name) {
         case "grass":
@@ -37,7 +37,7 @@ export const PokedexPage = () => {
         default:
           break;
       }
-      return  <PokemonCardPokedex pokeCard={pokeCard} color={color}/>
+      return  <PokemonCard key={index} pokeCard={pokeCard} color={color}/>
       })}
         
       </StyleList>

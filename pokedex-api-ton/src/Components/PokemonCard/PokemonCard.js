@@ -1,5 +1,6 @@
 import {
   ButtonCaptur,
+  ButtonRemove,
   DetailAndCaptur,
   ImgPokebola,
   ImgPokemon,
@@ -15,13 +16,30 @@ import pokebola from "../../assets/pokebolaFundo.png";
 import { useContext } from "react";
 import { GlobalContext } from "../../contexts/GlobalContext";
 import GetType from "../type/GetType";
-import { useNavigate } from "react-router-dom";
+import { useLocation, useNavigate } from "react-router-dom";
 import { goToDetails } from "../../router/cordinator";
 
 function PokemonCard({ pokeCard, color, key }) {
   const context = useContext(GlobalContext);
   const { addToPokedex } = context;
   const navigate = useNavigate();
+  const location = useLocation();
+
+  const renderButton = () => {
+    switch (location.pathname) {
+      case "/":
+        <ButtonCaptur onClick={() => addToPokedex(pokeCard)}>
+              Capturar!
+            </ButtonCaptur>
+        break;
+    
+      default:
+        <ButtonRemove onClick={() => removeFromPokedex(pokeCard)}>
+                Remover!
+              </ButtonRemove>
+        break;
+    }
+  }
 
   const renderPokeCardList = () => {
     return (
@@ -47,9 +65,7 @@ function PokemonCard({ pokeCard, color, key }) {
             >
               Detalhes
             </StyleDetail>
-            <ButtonCaptur onClick={() => addToPokedex(pokeCard)}>
-              Capturar!
-            </ButtonCaptur>
+            {<>{renderButton()}</>}           
           </DetailAndCaptur>
         </StyleCard>
       </StyleCardFull>

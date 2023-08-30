@@ -33,7 +33,7 @@ Este projeto terá como fonte de dados para a sua criação a [Poke Api](https:/
 # Clone este repositório
 $ git clone linkrepo
 
-# Acesse a pasta doprojeto no seu terminal
+# Acesse a pasta do projeto no seu terminal
 $ git cd pokedex-api-ton
 
 # Instale as dependências 

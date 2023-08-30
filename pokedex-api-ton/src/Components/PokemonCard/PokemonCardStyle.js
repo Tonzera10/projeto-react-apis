@@ -94,6 +94,18 @@ export const ButtonCaptur = styled.button`
     border: none;
     z-index: 2;
 `
+export const ButtonRemove = styled.button`
+    font-family: 'Poppins', sans-serif;
+    font-weight: 400;
+    font-size: ${px2vw(16)};
+    width: ${px2vw(146)};
+    height: ${px2vw(38)};
+    border-radius: ${px2vw(8)};
+    border: none;
+    background-color: #FF6262;
+    color: white;
+    z-index: 2;
+`
 
 export const StyleDiv = styled.div`
     height: ${px2vw(29)};
